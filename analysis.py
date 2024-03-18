@@ -59,6 +59,7 @@ ax.set_ylim(0, 3)
 plt.show()
 
 #Task #1: Create a histogram of each variable and save the plot as a .png file
+#This is only the first attempt at creating histograms. I will look at perhaps creating a function to do this later on, so that the code is more efficient and not repetitive.
 #Create a histogram of the sepal length
 
 fig, ax = plt.subplots()
