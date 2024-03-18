@@ -58,6 +58,7 @@ ax.set_ylim(0, 3)
 
 plt.show()
 
+'''
 #Task #1: Create a histogram of each variable and save the plot as a .png file
 #This is only the first attempt at creating histograms. I will look at perhaps creating a function to do this later on, so that the code is more efficient and not repetitive.
 #Create a histogram of the sepal length
@@ -143,5 +144,27 @@ ax.legend()
 
 #Save the plot as a .png file
 plt.savefig("petal_width_histogram.png")
+'''
+
+#Attempting to create a function which will create histograms for each variable, possible need to look at coloring the 
+#different species differently.
+
+def create_histogram(data, variable, species):
+    fig, ax = plt.subplots()
+    ax.hist(data[variable], bins=10, label=species, color="blue", alpha=0.5) 
+    ax.set_xlabel(variable)
+    ax.set_ylabel("Frequency")
+    ax.set_title(variable)
+    ax.legend()
+    plt.savefig(variable + "_histogram.png")
+
+
+#Main program to call the function
+    
+create_histogram(setosa, "sepal_length", "Setosa")
+create_histogram(versicolor, "sepal_length", "Versicolor")
+create_histogram(virginica, "sepal_length", "Virginica")
+create_histogram(setosa, "sepal_width", "Setosa")
+
 
 
