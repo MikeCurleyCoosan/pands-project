@@ -96,7 +96,8 @@ def create_scatter_plot(df, x, y): #The function takes in three parameters, the 
 
 
 #Main program
-#Call the function to create histograms for each variable
+#Call the function to create histograms for each variable.......May be a more efficient way to do this.....come back to it later.
+#(Look to see if you can call the function in a loop or something.....)
 create_histogram(df, "sepal_length")
 create_histogram(df, "sepal_width")
 create_histogram(df, "petal_length")
@@ -105,6 +106,18 @@ create_scatter_plot(df, "sepal_length", "sepal_width")
 create_scatter_plot(df, "petal_length", "petal_width")
 create_scatter_plot(df, "sepal_length", "petal_length")
 create_scatter_plot(df, "sepal_width", "petal_width")
+
+#Future work: Thinking out loud.......
+#1. Define a function to create a summary of each variable to a .txt file....what data should be included in the summary?
+#2. Define a function to create a pairplot of the dataset......may be a bit ambitious for me at the moment
+#3. Define a function to create a boxplot for each variable.....can this be done using the same approach as the histogram function?
+#4. Define a function to create a correlation matrix for the dataset....
+#5. Define a function to create a heatmap of the correlation matrix.....
+#6. Define a function to create a violin plot for each variable.....
+
+#Have come across the above named plots and matrices but not sure how to use them yet, or what they are for. Will look into them further.
+
+
 
 
 

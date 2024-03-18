@@ -89,3 +89,6 @@ About me....
 
 - Reference #1: https://archive.ics.uci.edu/ml/datasets/iris
 - Reference #2: https://www.w3schools.io/file/markdown-images/ 
+- Reference #3: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html
+- Reference #4: #https://realpython.com/python-histograms/ 
+
