@@ -29,35 +29,6 @@ print(data)
 #Checking the group size of each species
 print(df.groupby('species').size())
 
-#plotting the dataset. Firstly create variables for each species and store the data in them. Here we are storing 
-#the data for each species in a separate variable. 
-setosa = df[df.species == "Iris-setosa"]
-versicolor = df[df.species=='Iris-versicolor']
-virginica = df[df.species=='Iris-virginica']
-
-fig, ax = plt.subplots()
-
-# lables and scatter points. We are plotting three scatter plots on the same graph. Each scatter plot represents a species.
-ax.scatter(setosa['petal_length'], setosa['petal_width'], label="Setosa", facecolor="blue")
-ax.scatter(versicolor['petal_length'], versicolor['petal_width'], label="Versicolor", facecolor="green")
-ax.scatter(virginica['petal_length'], virginica['petal_width'], label="Virginica", facecolor="red")
-
-#Set th Axis lables
-ax.set_xlabel("petal length (cm)")
-ax.set_ylabel("petal width (cm)")
-#Add a grid
-ax.grid()
-#Add a title
-ax.set_title("Iris petals")
-#Add a legend
-ax.legend()
-
-#Set your x and y axis limits
-ax.set_xlim(0, 8)
-ax.set_ylim(0, 3)
-
-plt.show()
-
 #Final version of the code to create a histogram for each variable for each species on the same plot
 #Create a function to create histograms for each variable
 def create_histogram(df, variable): #The function takes in two parameters, the dataframe and the variable to create the histogram foran
@@ -89,12 +60,53 @@ def create_histogram(df, variable): #The function takes in two parameters, the d
     #Save the plot as a .png file
     plt.savefig(variable + "_histogram.png")
 
+#Use same approach as above to create a scatter plot for each pair of variables. Therefore we create a function to create the scatter plots
+def create_scatter_plot(df, x, y): #The function takes in three parameters, the dataframe and the two variables to create the scatter plot for
+
+    #Create local variables for each species
+    setosa = df[df.species == "Iris-setosa"]
+    versicolor = df[df.species=='Iris-versicolor']
+    virginica = df[df.species=='Iris-virginica']
+
+    #The stateful approach to creating a scatter plot as recommended by real python website
+    #https://realpython.com/python-histograms/
+    fig, ax = plt.subplots()
+
+    #Create the scatter plot for the two variables for each species on the one plot. Therefore three scatter plots will be
+    #created on the same plot.
+    ax.scatter(setosa[x], setosa[y], label="Setosa", facecolor="blue")
+    ax.scatter(versicolor[x], versicolor[y], label="Versicolor", facecolor="green")
+    ax.scatter(virginica[x], virginica[y], label="Virginica", facecolor="red")
+
+    #Set the x and y axis labels
+    ax.set_xlabel(x + " (cm)")
+    ax.set_ylabel(y + " (cm)")
+
+    #Add a grid
+    ax.grid()
+
+    #Add a title
+    ax.set_title("Iris " + x + " vs " + y)
+
+    #Add a legend
+    ax.legend()
+
+    #Save the plot as a .png file
+    plt.savefig(x + "_vs_" + y + "_scatter.png")
+
+
 #Main program
 #Call the function to create histograms for each variable
 create_histogram(df, "sepal_length")
 create_histogram(df, "sepal_width")
 create_histogram(df, "petal_length")
 create_histogram(df, "petal_width")
+create_scatter_plot(df, "sepal_length", "sepal_width")
+create_scatter_plot(df, "petal_length", "petal_width")
+create_scatter_plot(df, "sepal_length", "petal_length")
+create_scatter_plot(df, "sepal_width", "petal_width")
+
+
 
 
 

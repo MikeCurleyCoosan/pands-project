@@ -5,7 +5,7 @@ TaskList
 - [x] Write a program called analysis.py that:
 - [ ] Outputs a summary of each variable to a single text file,
 - [x] Saves a histogram of each variable to png files, and
-- [ ] Outputs a scatter plot of each pair of variables.
+- [x] Outputs a scatter plot of each pair of variables.
 - [ ] Performs any other analysis you think is appropriate.
 - [ ] Upload the github repository to VLE
 - [ ] May produce a Jupyter notebook as well containing all my comments
