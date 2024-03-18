@@ -58,111 +58,20 @@ ax.set_ylim(0, 3)
 
 plt.show()
 
-'''
-#Task #1: Create a histogram of each variable and save the plot as a .png file
-#This is only the first attempt at creating histograms. I will look at perhaps creating a function to do this later on, so that the code is more efficient and not repetitive.
-#Create a histogram of the sepal length
-
-fig, ax = plt.subplots()
-ax.hist(setosa['sepal_length'], bins=10, label="Setosa", color="blue", alpha=0.5)
-ax.hist(versicolor['sepal_length'], bins=10, label="Versicolor", color="green", alpha=0.5)
-ax.hist(virginica['sepal_length'], bins=10, label="Virginica", color="red", alpha=0.5)
-
-#Set the x and y axis labels
-ax.set_xlabel("sepal length (cm)")
-ax.set_ylabel("Frequency")
-
-#Add a title
-ax.set_title("Sepal Length")
-
-#Add a legend
-ax.legend()
-
-#Save the plot as a .png file
-plt.savefig("sepal_length_histogram.png")
-
-#Create a histogram of the sepal width
-
-fig, ax = plt.subplots()
-
-ax.hist(setosa['sepal_width'], bins=10, label="Setosa", color="blue", alpha=0.5)
-ax.hist(versicolor['sepal_width'], bins=10, label="Versicolor", color="green", alpha=0.5)
-ax.hist(virginica['sepal_width'], bins=10, label="Virginica", color="red", alpha=0.5)
-
-#Set the x and y axis labels
-ax.set_xlabel("sepal width (cm)")
-ax.set_ylabel("Frequency")
-
-#Add a title
-ax.set_title("Sepal Width")
-
-#Add a legend
-ax.legend()
-
-#Save the plot as a .png file
-
-plt.savefig("sepal_width_histogram.png")
-
-#Create a histogram of the petal length
-
-fig, ax = plt.subplots()
-
-ax.hist(setosa['petal_length'], bins=10, label="Setosa", color="blue", alpha=0.5)
-ax.hist(versicolor['petal_length'], bins=10, label="Versicolor", color="green", alpha=0.5)
-ax.hist(virginica['petal_length'], bins=10, label="Virginica", color="red", alpha=0.5)
-
-#Set the x and y axis labels
-ax.set_xlabel("petal length (cm)")
-ax.set_ylabel("Frequency")
-
-#Add a title
-ax.set_title("Petal Length")
-
-#Add a legend
-ax.legend()
-
-#Save the plot as a .png file
-plt.savefig("petal_length_histogram.png")
-
-#Create a histogram of the petal width
-
-fig, ax = plt.subplots()
-
-ax.hist(setosa['petal_width'], bins=10, label="Setosa", color="blue", alpha=0.5)
-ax.hist(versicolor['petal_width'], bins=10, label="Versicolor", color="green", alpha=0.5)
-ax.hist(virginica['petal_width'], bins=10, label="Virginica", color="red", alpha=0.5)
-
-#Set the x and y axis labels
-ax.set_xlabel("petal width (cm)")
-ax.set_ylabel("Frequency")
-
-#Add a title
-ax.set_title("Petal Width")
-
-#Add a legend
-ax.legend()
-
-#Save the plot as a .png file
-plt.savefig("petal_width_histogram.png")
-'''
-
-#Attempting to create a function which will create histograms for each variable, possible need to look at coloring the 
-#different species differently.
-
-#Create a dictionary to store the species and the data for each species, so that this can be used in the function to create the histograms
-#for all species on the same plot
-
-species_data = {"Setosa": setosa, "Versicolor": versicolor, "Virginica": virginica}
-
+#Final version of the code to create a histogram for each variable for each species on the same plot
 #Create a function to create histograms for each variable
-
-def create_histogram(df, variable):
+def create_histogram(df, variable): #The function takes in two parameters, the dataframe and the variable to create the histogram foran
+    #Using the dataframe we can create local variable for each species
     setosa = df[df.species == "Iris-setosa"]
     versicolor = df[df.species=='Iris-versicolor']
     virginica = df[df.species=='Iris-virginica']
-    
+
+    #The stateful approach to creating a histogram as recommended by real python website
+    #https://realpython.com/python-histograms/ 
     fig, ax = plt.subplots()
 
+    #Create the histogram for the same variable for each species on the one plot. Therefore three histograms will be 
+    #created on the same plot.
     ax.hist(setosa[variable], bins=10, label="Setosa", color="blue", alpha=0.5)
     ax.hist(versicolor[variable], bins=10, label="Versicolor", color="green", alpha=0.5)
     ax.hist(virginica[variable], bins=10, label="Virginica", color="red", alpha=0.5)
