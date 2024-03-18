@@ -149,22 +149,46 @@ plt.savefig("petal_width_histogram.png")
 #Attempting to create a function which will create histograms for each variable, possible need to look at coloring the 
 #different species differently.
 
-def create_histogram(data, variable, species):
+#Create a dictionary to store the species and the data for each species, so that this can be used in the function to create the histograms
+#for all species on the same plot
+
+species_data = {"Setosa": setosa, "Versicolor": versicolor, "Virginica": virginica}
+
+#Create a function to create histograms for each variable
+
+def create_histogram(df, variable):
+    setosa = df[df.species == "Iris-setosa"]
+    versicolor = df[df.species=='Iris-versicolor']
+    virginica = df[df.species=='Iris-virginica']
+    
     fig, ax = plt.subplots()
-    ax.hist(data[variable], bins=10, label=species, color="blue", alpha=0.5) 
+
+    ax.hist(setosa[variable], bins=10, label="Setosa", color="blue", alpha=0.5)
+    ax.hist(versicolor[variable], bins=10, label="Versicolor", color="green", alpha=0.5)
+    ax.hist(virginica[variable], bins=10, label="Virginica", color="red", alpha=0.5)
+
+    #Set the x and y axis labels
     ax.set_xlabel(variable)
     ax.set_ylabel("Frequency")
+    
+    #Add a title
     ax.set_title(variable)
+
+    #Add a legend
     ax.legend()
+
+    #Save the plot as a .png file
     plt.savefig(variable + "_histogram.png")
 
+#Main program
+#Call the function to create histograms for each variable
+create_histogram(df, "sepal_length")
+create_histogram(df, "sepal_width")
+create_histogram(df, "petal_length")
+create_histogram(df, "petal_width")
 
-#Main program to call the function and create three histograms for each variable
 
-for variable in df.columns[:-1]:
-    create_histogram(setosa, variable, "Setosa")
-    create_histogram(versicolor, variable, "Versicolor")
-    create_histogram(virginica, variable, "Virginica")
+
 
 
 
