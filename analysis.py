@@ -159,12 +159,16 @@ def create_histogram(data, variable, species):
     plt.savefig(variable + "_histogram.png")
 
 
-#Main program to call the function
-    
-create_histogram(setosa, "sepal_length", "Setosa")
-create_histogram(versicolor, "sepal_length", "Versicolor")
-create_histogram(virginica, "sepal_length", "Virginica")
-create_histogram(setosa, "sepal_width", "Setosa")
+#Main program to call the function and create three histograms for each variable
+
+for variable in df.columns[:-1]:
+    create_histogram(setosa, variable, "Setosa")
+    create_histogram(versicolor, variable, "Versicolor")
+    create_histogram(virginica, variable, "Virginica")
+
+
+
+
 
 
 
