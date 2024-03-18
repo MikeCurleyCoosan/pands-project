@@ -38,6 +38,7 @@ def create_histogram(df, variable): #The function takes in two parameters, the d
     virginica = df[df.species=='Iris-virginica']
 
     #The stateful approach to creating a histogram as recommended by real python website
+    #https://realpython.com/python-matplotlib-guide/
     #https://realpython.com/python-histograms/ 
     fig, ax = plt.subplots()
 
@@ -69,6 +70,7 @@ def create_scatter_plot(df, x, y): #The function takes in three parameters, the 
     virginica = df[df.species=='Iris-virginica']
 
     #The stateful approach to creating a scatter plot as recommended by real python website
+    #https://realpython.com/python-matplotlib-guide/
     #https://realpython.com/python-histograms/
     fig, ax = plt.subplots()
 

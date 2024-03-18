@@ -46,7 +46,7 @@
 
 This repository contains the Iris Fisher dataset and Python code for analysing it using a variety of Python software modules such as [pandas](https://pandas.pydata.org/), [NumPy](https://numpy.org/) and [Matplotlib](https://matplotlib.org/). This project was undertaken as part of the 'Programming and Scripting' module in the Higher Diploma in Data Analytics in ATU, Galway in the year 2024.
 
-The Iris Fisher dataset is a very popular dataset for data analysis and visualization tasks. It is also known as the Iris Flower dataset and consists of different attribute information for three differen classes of the Iris species. The dataset is quite small, consisting of 50 samples of each of the three different classes, to give a total of 150 instances in total. For each instance the different attributes that were taken were as follows.
+The Iris Fisher dataset is a very popular dataset for data analysis and visualization tasks. It is also known as the Iris Flower dataset and consists of different attribute information for three differen classes of the Iris species. The dataset is quite small, consisting of 50 samples of each of the three different classes, to give a total of 150 instances in total. For each instance the different attributes that were taken were as follows. 
 
 ### ***Dataset Columns***
 
@@ -56,7 +56,7 @@ The Iris Fisher dataset is a very popular dataset for data analysis and visualiz
 - **petal_width**: The petal width for each instance in cms.
 - **species**: Iris species (Iris setosa, Iris versicolor, and Iris virginica).
 
-
+Iris dataset [01](#references) used in this analysis can be found among files in this repository as iris_data.csv.
 
 ### ***Variable Classification***
 
@@ -90,5 +90,7 @@ About me....
 - Reference #1: https://archive.ics.uci.edu/ml/datasets/iris
 - Reference #2: https://www.w3schools.io/file/markdown-images/ 
 - Reference #3: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html
-- Reference #4: #https://realpython.com/python-histograms/ 
+- Reference #4: https://realpython.com/python-histograms/ 
+- Reference #5: https://realpython.com/python-matplotlib-guide/
+- Reference #6: 
 
