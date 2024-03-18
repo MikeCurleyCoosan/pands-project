@@ -35,7 +35,7 @@ USE as many python libaries as you wish.......
 
 Lots of commits. A reasonable unit of work for a single commit is a small function, or a handful of comments or a small change that fixes a bug.
 - [x] Week 8
-- [ ] Week 9
+- [x] Week 9
 - [ ] Week 10
 - [ ] Week 11
 - [ ] Week 12

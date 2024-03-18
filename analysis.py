@@ -57,3 +57,90 @@ ax.set_xlim(0, 8)
 ax.set_ylim(0, 3)
 
 plt.show()
+
+#Task #1: Create a histogram of each variable and save the plot as a .png file
+#Create a histogram of the sepal length
+
+fig, ax = plt.subplots()
+ax.hist(setosa['sepal_length'], bins=10, label="Setosa", color="blue", alpha=0.5)
+ax.hist(versicolor['sepal_length'], bins=10, label="Versicolor", color="green", alpha=0.5)
+ax.hist(virginica['sepal_length'], bins=10, label="Virginica", color="red", alpha=0.5)
+
+#Set the x and y axis labels
+ax.set_xlabel("sepal length (cm)")
+ax.set_ylabel("Frequency")
+
+#Add a title
+ax.set_title("Sepal Length")
+
+#Add a legend
+ax.legend()
+
+#Save the plot as a .png file
+plt.savefig("sepal_length_histogram.png")
+
+#Create a histogram of the sepal width
+
+fig, ax = plt.subplots()
+
+ax.hist(setosa['sepal_width'], bins=10, label="Setosa", color="blue", alpha=0.5)
+ax.hist(versicolor['sepal_width'], bins=10, label="Versicolor", color="green", alpha=0.5)
+ax.hist(virginica['sepal_width'], bins=10, label="Virginica", color="red", alpha=0.5)
+
+#Set the x and y axis labels
+ax.set_xlabel("sepal width (cm)")
+ax.set_ylabel("Frequency")
+
+#Add a title
+ax.set_title("Sepal Width")
+
+#Add a legend
+ax.legend()
+
+#Save the plot as a .png file
+
+plt.savefig("sepal_width_histogram.png")
+
+#Create a histogram of the petal length
+
+fig, ax = plt.subplots()
+
+ax.hist(setosa['petal_length'], bins=10, label="Setosa", color="blue", alpha=0.5)
+ax.hist(versicolor['petal_length'], bins=10, label="Versicolor", color="green", alpha=0.5)
+ax.hist(virginica['petal_length'], bins=10, label="Virginica", color="red", alpha=0.5)
+
+#Set the x and y axis labels
+ax.set_xlabel("petal length (cm)")
+ax.set_ylabel("Frequency")
+
+#Add a title
+ax.set_title("Petal Length")
+
+#Add a legend
+ax.legend()
+
+#Save the plot as a .png file
+plt.savefig("petal_length_histogram.png")
+
+#Create a histogram of the petal width
+
+fig, ax = plt.subplots()
+
+ax.hist(setosa['petal_width'], bins=10, label="Setosa", color="blue", alpha=0.5)
+ax.hist(versicolor['petal_width'], bins=10, label="Versicolor", color="green", alpha=0.5)
+ax.hist(virginica['petal_width'], bins=10, label="Virginica", color="red", alpha=0.5)
+
+#Set the x and y axis labels
+ax.set_xlabel("petal width (cm)")
+ax.set_ylabel("Frequency")
+
+#Add a title
+ax.set_title("Petal Width")
+
+#Add a legend
+ax.legend()
+
+#Save the plot as a .png file
+plt.savefig("petal_width_histogram.png")
+
+
