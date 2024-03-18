@@ -2,7 +2,7 @@
 
 ## **by Michael Curley**
 
-![Iris Data Set](../pands-project/Images/iris_image.png))
+![Iris Data Set](Images/iris_image.png))
 
 
 
