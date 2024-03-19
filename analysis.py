@@ -161,43 +161,51 @@ def create_pairplot(df):
     #The stateless approach to creating a pairplot as recommended by real python website
     #https://realpython.com/python-matplotlib-guide/
     #https://realpython.com/python-histograms/
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(2,2)
 
     #Create the pairplot for the dataset
-    ax.scatter(df['sepal_length'], df['sepal_width'], label="Sepal Length vs Sepal Width", facecolor="blue")
-    ax.scatter(df['petal_length'], df['petal_width'], label="Petal Length vs Petal Width", facecolor="green")
-    ax.scatter(df['sepal_length'], df['petal_length'], label="Sepal Length vs Petal Length", facecolor="red")
-    ax.scatter(df['sepal_width'], df['petal_width'], label="Sepal Width vs Petal Width", facecolor="yellow")
+
+    ax[0,0].scatter(df["sepal_length"], df["sepal_width"], label="Sepal Length vs Sepal Width", facecolor="blue")
+    ax[0,1].scatter(df["petal_length"], df["petal_width"], label="Petal Length vs Petal Width", facecolor="green")
+    ax[1,0].scatter(df["sepal_length"], df["petal_length"], label="Sepal Length vs Petal Length", facecolor="red")
+    ax[1,1].scatter(df["sepal_width"], df["petal_width"], label="Sepal Width vs Petal Width", facecolor="yellow")
 
     #Set the x and y axis labels
-    ax.set_xlabel("Sepal Length (cm)")
-    ax.set_ylabel("Sepal Width (cm)")
-    ax.set_xlabel("Petal Length (cm)")
-    ax.set_ylabel("Petal Width (cm)")
-    ax.set_xlabel("Sepal Length (cm)")
-    ax.set_ylabel("Petal Length (cm)")
-    ax.set_xlabel("Sepal Width (cm)")
-    ax.set_ylabel("Petal Width (cm)")
+    ax[0,0].set_xlabel("Sepal Length (cm)")
+    ax[0,0].set_ylabel("Sepal Width (cm)")
+    ax[0,1].set_xlabel("Petal Length (cm)")
+    ax[0,1].set_ylabel("Petal Width (cm)")
+    ax[1,0].set_xlabel("Sepal Length (cm)")
+    ax[1,0].set_ylabel("Petal Length (cm)")
+    ax[1,1].set_xlabel("Sepal Width (cm)")
+    ax[1,1].set_ylabel("Petal Width (cm)")
+
 
     #Add a grid
-    ax.grid()
+    ax[0,0].grid()
+    ax[0,1].grid()
+    ax[1,0].grid()
+    ax[1,1].grid()
 
     #Add a title
-    ax.set_title("Iris Pairplot")
+    ax[0,0].set_title("Iris Sepal Length vs Sepal Width")
+    ax[0,1].set_title("Iris Petal Length vs Petal Width")
+    ax[1,0].set_title("Iris Sepal Length vs Petal Length")
+    ax[1,1].set_title("Iris Sepal Width vs Petal Width")
 
     #Add a legend
-    ax.legend()
+    ax[0,0].legend()
+    ax[0,1].legend()
+    ax[1,0].legend()
+    ax[1,1].legend()
 
     #Save the plot as a .png file
     plt.savefig("pairplot.png")
-
-
+   
 
 #Main program
 #Call the function to create histograms for each variable.......May be a more efficient way to do this.....come back to it later.
 #(Look to see if you can call the function in a loop or something.....)
-
-
 
 create_summary(df, FILENAME)
 create_histogram(df, "sepal_length")
@@ -220,16 +228,4 @@ create_pairplot(df)
 
 #Have come across the above named plots and matrices but not sure how to use them yet, or what they are for. Will look into them further.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+#References:
