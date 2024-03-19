@@ -166,34 +166,36 @@ def create_pairplot(df):
     fig.tight_layout(pad=3.0) #Add some padding to the subplots
 
     #Create the pairplot for the dataset
-    #
-    ax[0,0].scatter(df["sepal_length"], df["sepal_width"], label="Sepal Length vs Sepal Width", facecolor="blue")
-    ax[0,1].scatter(df["petal_length"], df["petal_width"], label="Petal Length vs Petal Width", facecolor="green")
-    ax[1,0].scatter(df["sepal_length"], df["petal_length"], label="Sepal Length vs Petal Length", facecolor="red")
-    ax[1,1].scatter(df["sepal_width"], df["petal_width"], label="Sepal Width vs Petal Width", facecolor="yellow")
+    ax[0,0].scatter(df["sepal_length"], df["sepal_width"], label="Sepal Length vs Sepal Width", facecolor="blue") #Create the scatter plot for sepal length vs sepal width
+    ax[0,1].scatter(df["petal_length"], df["petal_width"], label="Petal Length vs Petal Width", facecolor="green") #Create the scatter plot for petal length vs petal width
+    ax[1,0].scatter(df["sepal_length"], df["petal_length"], label="Sepal Length vs Petal Length", facecolor="red") #Create the scatter plot for sepal length vs petal length
+    ax[1,1].scatter(df["sepal_width"], df["petal_width"], label="Sepal Width vs Petal Width", facecolor="yellow")  #Create the scatter plot for sepal width vs petal width
 
     #Set the x and y axis labels
-    ax[0,0].set_xlabel("Sepal Length (cm)")
-    ax[0,0].set_ylabel("Sepal Width (cm)")
-    ax[0,1].set_xlabel("Petal Length (cm)")
-    ax[0,1].set_ylabel("Petal Width (cm)")
-    ax[1,0].set_xlabel("Sepal Length (cm)")
-    ax[1,0].set_ylabel("Petal Length (cm)")
-    ax[1,1].set_xlabel("Sepal Width (cm)")
-    ax[1,1].set_ylabel("Petal Width (cm)")
+    ax[0,0].set_xlabel("Sepal Length (cm)") #Set the x axis label for the first subplot
+    ax[0,0].set_ylabel("Sepal Width (cm)") #Set the y axis label for the first subplot
+
+    ax[0,1].set_xlabel("Petal Length (cm)") #Set the x axis label for the second subplot
+    ax[0,1].set_ylabel("Petal Width (cm)") #Set the y axis label for the second subplot
+
+    ax[1,0].set_xlabel("Sepal Length (cm)") #Set the x axis label for the third subplot
+    ax[1,0].set_ylabel("Petal Length (cm)") #Set the y axis label for the third subplot
+
+    ax[1,1].set_xlabel("Sepal Width (cm)") #Set the x axis label for the fourth subplot
+    ax[1,1].set_ylabel("Petal Width (cm)") #Set the y axis label for the fourth subplot
 
 
     #Add a grid
-    ax[0,0].grid()
-    ax[0,1].grid()
-    ax[1,0].grid()
-    ax[1,1].grid()
+    ax[0,0].grid() #Add a grid to the first subplot
+    ax[0,1].grid() #Add a grid to the second subplot
+    ax[1,0].grid() #Add a grid to the third subplot
+    ax[1,1].grid() #Add a grid to the fourth subplot
 
     #Add a title
-    ax[0,0].set_title("Sepal Length vs Sepal Width")
-    ax[0,1].set_title("Petal Length vs Petal Width")
-    ax[1,0].set_title("Sepal Length vs Petal Length")
-    ax[1,1].set_title("Sepal Width vs Petal Width")
+    ax[0,0].set_title("Sepal Length vs Sepal Width") #Add a title to the first subplot
+    ax[0,1].set_title("Petal Length vs Petal Width") #Add a title to the second subplot
+    ax[1,0].set_title("Sepal Length vs Petal Length") #Add a title to the third subplot
+    ax[1,1].set_title("Sepal Width vs Petal Width") #Add a title to the fourth subplot
 
     #Save the plot as a .png file
     plt.savefig("pairplot.png")
@@ -215,8 +217,8 @@ create_scatter_plot(df, "sepal_width", "petal_width")
 create_pairplot(df)
 
 #Future work: Thinking out loud.......
-#1. Define a function to create a summary of each variable to a .txt file....what data should be included in the summary?
-#2. Define a function to create a pairplot of the dataset......may be a bit ambitious for me at the moment
+#1. Summary.txt file.....Research and see if anything else should be included in the summary of the dataset?? Examples. skewness, kurtosis, etc.
+#2. Pairplot function......update the function to put the species in different colours on the subplots??
 #3. Define a function to create a boxplot for each variable.....can this be done using the same approach as the histogram function?
 #4. Define a function to create a correlation matrix for the dataset....
 #5. Define a function to create a heatmap of the correlation matrix.....
