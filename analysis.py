@@ -96,6 +96,42 @@ def create_scatter_plot(df, x, y): #The function takes in three parameters, the 
     #Save the plot as a .png file
     plt.savefig(x + "_vs_" + y + "_scatter.png")
 
+#Create a function to create a pairplot of the dataset without using the seaborn library
+def create_pairplot(df):
+    #The stateless approach to creating a pairplot as recommended by real python website
+    #https://realpython.com/python-matplotlib-guide/
+    #https://realpython.com/python-histograms/
+    fig, ax = plt.subplots()
+
+    #Create the pairplot for the dataset
+    ax.scatter(df['sepal_length'], df['sepal_width'], label="Sepal Length vs Sepal Width", facecolor="blue")
+    ax.scatter(df['petal_length'], df['petal_width'], label="Petal Length vs Petal Width", facecolor="green")
+    ax.scatter(df['sepal_length'], df['petal_length'], label="Sepal Length vs Petal Length", facecolor="red")
+    ax.scatter(df['sepal_width'], df['petal_width'], label="Sepal Width vs Petal Width", facecolor="yellow")
+
+    #Set the x and y axis labels
+    ax.set_xlabel("Sepal Length (cm)")
+    ax.set_ylabel("Sepal Width (cm)")
+    ax.set_xlabel("Petal Length (cm)")
+    ax.set_ylabel("Petal Width (cm)")
+    ax.set_xlabel("Sepal Length (cm)")
+    ax.set_ylabel("Petal Length (cm)")
+    ax.set_xlabel("Sepal Width (cm)")
+    ax.set_ylabel("Petal Width (cm)")
+
+    #Add a grid
+    ax.grid()
+
+    #Add a title
+    ax.set_title("Iris Pairplot")
+
+    #Add a legend
+    ax.legend()
+
+    #Save the plot as a .png file
+    plt.savefig("pairplot.png")
+
+
 
 #Main program
 #Call the function to create histograms for each variable.......May be a more efficient way to do this.....come back to it later.
