@@ -3,7 +3,7 @@ TaskList
 - [ ] Research the data set online and write a summary about it in my README.
 - [x] Download the data set and add it to my repository.
 - [x] Write a program called analysis.py that:
-- [ ] Outputs a summary of each variable to a single text file,
+- [x] Outputs a summary of each variable to a single text file,
 - [x] Saves a histogram of each variable to png files, and
 <<<<<<< HEAD
 - [ ] Outputs a scatter plot of each pair of variables.
