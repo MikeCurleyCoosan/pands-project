@@ -46,7 +46,7 @@
 
 This repository contains the Iris Fisher dataset and Python code for analysing it using a variety of Python software modules such as [pandas](https://pandas.pydata.org/), [NumPy](https://numpy.org/) and [Matplotlib](https://matplotlib.org/). This project was undertaken as part of the 'Programming and Scripting' module in the Higher Diploma in Data Analytics in ATU, Galway in the year 2024.
 
-The Iris Fisher dataset is a very popular dataset for data analysis and visualization tasks. It is also known as the Iris Flower dataset and consists of different attribute information for three differen classes of the Iris species. The dataset is quite small, consisting of 50 samples of each of the three different classes, to give a total of 150 instances in total. For each instance the different attributes that were taken were as follows.
+The Iris Fisher dataset is a very popular dataset for data analysis and visualization tasks. It is also known as the Iris Flower dataset and consists of different attribute information for three differen classes of the Iris species. The dataset is quite small, consisting of 50 samples of each of the three different classes, to give a total of 150 instances in total. For each instance the different attributes that were taken were as follows, given below as dataset columns. 
 
 ### ***Dataset Columns***
 
@@ -56,7 +56,15 @@ The Iris Fisher dataset is a very popular dataset for data analysis and visualiz
 - **petal_width**: The petal width for each instance in cms.
 - **species**: Iris species (Iris setosa, Iris versicolor, and Iris virginica).
 
+The data was collected in the Gaspé Peninsula by botanist Edgar Anderson, and famously used by statistician Ronald Fisher in his 1936 paper ["The Use of Multiple Measurements in Taxonomic Problems"](https://onlinelibrary.wiley.com/doi/10.1111/j.1469-1809.1936.tb02137.x) to demonstrate how classification can be gauged by statistics. He argues that, due to some significant attribute differences between the species in this dataset, Iris group membership could potentially be determined by sepal and petal measurements - a method that would become known as [linear discriminant analysis](https://en.wikipedia.org/wiki/Linear_discriminant_analysis#:~:text=Linear%20discriminant%20analysis%20(LDA)%2C,classes%20of%20objects%20or%20events.). From here it is postulated that new iris flowers could be classified based on the statistical information gleaned from the dataset.
 
+The Iris Dataset remains a popular example as an introduction to exploratory data analysis, pattern recognition, and machine learning algorithms for the following reasons [Brownlee, 2016](https://machinelearningmastery.com/machine-learning-in-python-step-by-step/)
+
+1. It is a complete, balanced dataset in that there are no null values and each class is equally represented.
+1. Each of the four features (sepal and petal length and width) are measured in the same units (centimetres).
+1. One iris species (setosa) is linearly separable from the other two. While the other two species have some overlap, they are still distinguishable from one another in certain measurements. As a result classification is relatively easy, and therefore the dataset predictive cababilities are quite strong.
+
+Iris dataset [01](#references) used in this analysis can be found among files in this repository as iris_data.csv.
 
 ### ***Variable Classification***
 
@@ -89,3 +97,8 @@ About me....
 
 - Reference #1: https://archive.ics.uci.edu/ml/datasets/iris
 - Reference #2: https://www.w3schools.io/file/markdown-images/ 
+- Reference #3: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html
+- Reference #4: https://realpython.com/python-histograms/ 
+- Reference #5: https://realpython.com/python-matplotlib-guide/
+- Reference #6: 
+

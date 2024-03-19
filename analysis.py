@@ -29,119 +29,143 @@ print(data)
 #Checking the group size of each species
 print(df.groupby('species').size())
 
-#plotting the dataset. Firstly create variables for each species and store the data in them. Here we are storing 
-#the data for each species in a separate variable. 
-setosa = df[df.species == "Iris-setosa"]
-versicolor = df[df.species=='Iris-versicolor']
-virginica = df[df.species=='Iris-virginica']
+#Final version of the code to create a histogram for each variable for each species on the same plot
+#Create a function to create histograms for each variable
+def create_histogram(df, variable): #The function takes in two parameters, the dataframe and the variable to create the histogram foran
+    #Using the dataframe we can create local variable for each species
+    setosa = df[df.species == "Iris-setosa"]
+    versicolor = df[df.species=='Iris-versicolor']
+    virginica = df[df.species=='Iris-virginica']
 
-fig, ax = plt.subplots()
+    #The stateless approach to creating a histogram as recommended by real python website
+    #https://realpython.com/python-matplotlib-guide/
+    #https://realpython.com/python-histograms/ 
+    fig, ax = plt.subplots()
 
-# lables and scatter points. We are plotting three scatter plots on the same graph. Each scatter plot represents a species.
-ax.scatter(setosa['petal_length'], setosa['petal_width'], label="Setosa", facecolor="blue")
-ax.scatter(versicolor['petal_length'], versicolor['petal_width'], label="Versicolor", facecolor="green")
-ax.scatter(virginica['petal_length'], virginica['petal_width'], label="Virginica", facecolor="red")
+    #Create the histogram for the same variable for each species on the one plot. Therefore three histograms will be 
+    #created on the same plot.
+    ax.hist(setosa[variable], bins=10, label="Setosa", color="blue", alpha=0.5)
+    ax.hist(versicolor[variable], bins=10, label="Versicolor", color="green", alpha=0.5)
+    ax.hist(virginica[variable], bins=10, label="Virginica", color="red", alpha=0.5)
 
-#Set th Axis lables
-ax.set_xlabel("petal length (cm)")
-ax.set_ylabel("petal width (cm)")
-#Add a grid
-ax.grid()
-#Add a title
-ax.set_title("Iris petals")
-#Add a legend
-ax.legend()
+    #Set the x and y axis labels
+    ax.set_xlabel(variable)
+    ax.set_ylabel("Frequency")
+    
+    #Add a title
+    ax.set_title(variable)
 
-#Set your x and y axis limits
-ax.set_xlim(0, 8)
-ax.set_ylim(0, 3)
+    #Add a legend
+    ax.legend()
 
-plt.show()
+    #Save the plot as a .png file
+    plt.savefig(variable + "_histogram.png")
 
-#Task #1: Create a histogram of each variable and save the plot as a .png file
-#This is only the first attempt at creating histograms. I will look at perhaps creating a function to do this later on, so that the code is more efficient and not repetitive.
-#Create a histogram of the sepal length
+#Use same approach as above to create a scatter plot for each pair of variables. Therefore we create a function to create the scatter plots
+def create_scatter_plot(df, x, y): #The function takes in three parameters, the dataframe and the two variables to create the scatter plot for
 
-fig, ax = plt.subplots()
-ax.hist(setosa['sepal_length'], bins=10, label="Setosa", color="blue", alpha=0.5)
-ax.hist(versicolor['sepal_length'], bins=10, label="Versicolor", color="green", alpha=0.5)
-ax.hist(virginica['sepal_length'], bins=10, label="Virginica", color="red", alpha=0.5)
+    #Create local variables for each species
+    setosa = df[df.species == "Iris-setosa"]
+    versicolor = df[df.species=='Iris-versicolor']
+    virginica = df[df.species=='Iris-virginica']
 
-#Set the x and y axis labels
-ax.set_xlabel("sepal length (cm)")
-ax.set_ylabel("Frequency")
+    #The stateless approach to creating a scatter plot as recommended by real python website
+    #https://realpython.com/python-matplotlib-guide/
+    #https://realpython.com/python-histograms/
+    fig, ax = plt.subplots()
 
-#Add a title
-ax.set_title("Sepal Length")
+    #Create the scatter plot for the two variables for each species on the one plot. Therefore three scatter plots will be
+    #created on the same plot.
+    ax.scatter(setosa[x], setosa[y], label="Setosa", facecolor="blue")
+    ax.scatter(versicolor[x], versicolor[y], label="Versicolor", facecolor="green")
+    ax.scatter(virginica[x], virginica[y], label="Virginica", facecolor="red")
 
-#Add a legend
-ax.legend()
+    #Set the x and y axis labels
+    ax.set_xlabel(x + " (cm)")
+    ax.set_ylabel(y + " (cm)")
 
-#Save the plot as a .png file
-plt.savefig("sepal_length_histogram.png")
+    #Add a grid
+    ax.grid()
 
-#Create a histogram of the sepal width
+    #Add a title
+    ax.set_title("Iris " + x + " vs " + y)
 
-fig, ax = plt.subplots()
+    #Add a legend
+    ax.legend()
 
-ax.hist(setosa['sepal_width'], bins=10, label="Setosa", color="blue", alpha=0.5)
-ax.hist(versicolor['sepal_width'], bins=10, label="Versicolor", color="green", alpha=0.5)
-ax.hist(virginica['sepal_width'], bins=10, label="Virginica", color="red", alpha=0.5)
+    #Save the plot as a .png file
+    plt.savefig(x + "_vs_" + y + "_scatter.png")
 
-#Set the x and y axis labels
-ax.set_xlabel("sepal width (cm)")
-ax.set_ylabel("Frequency")
+#Create a function to create a pairplot of the dataset without using the seaborn library
+def create_pairplot(df):
+    #The stateless approach to creating a pairplot as recommended by real python website
+    #https://realpython.com/python-matplotlib-guide/
+    #https://realpython.com/python-histograms/
+    fig, ax = plt.subplots()
 
-#Add a title
-ax.set_title("Sepal Width")
+    #Create the pairplot for the dataset
+    ax.scatter(df['sepal_length'], df['sepal_width'], label="Sepal Length vs Sepal Width", facecolor="blue")
+    ax.scatter(df['petal_length'], df['petal_width'], label="Petal Length vs Petal Width", facecolor="green")
+    ax.scatter(df['sepal_length'], df['petal_length'], label="Sepal Length vs Petal Length", facecolor="red")
+    ax.scatter(df['sepal_width'], df['petal_width'], label="Sepal Width vs Petal Width", facecolor="yellow")
 
-#Add a legend
-ax.legend()
+    #Set the x and y axis labels
+    ax.set_xlabel("Sepal Length (cm)")
+    ax.set_ylabel("Sepal Width (cm)")
+    ax.set_xlabel("Petal Length (cm)")
+    ax.set_ylabel("Petal Width (cm)")
+    ax.set_xlabel("Sepal Length (cm)")
+    ax.set_ylabel("Petal Length (cm)")
+    ax.set_xlabel("Sepal Width (cm)")
+    ax.set_ylabel("Petal Width (cm)")
 
-#Save the plot as a .png file
+    #Add a grid
+    ax.grid()
 
-plt.savefig("sepal_width_histogram.png")
+    #Add a title
+    ax.set_title("Iris Pairplot")
 
-#Create a histogram of the petal length
+    #Add a legend
+    ax.legend()
 
-fig, ax = plt.subplots()
+    #Save the plot as a .png file
+    plt.savefig("pairplot.png")
 
-ax.hist(setosa['petal_length'], bins=10, label="Setosa", color="blue", alpha=0.5)
-ax.hist(versicolor['petal_length'], bins=10, label="Versicolor", color="green", alpha=0.5)
-ax.hist(virginica['petal_length'], bins=10, label="Virginica", color="red", alpha=0.5)
 
-#Set the x and y axis labels
-ax.set_xlabel("petal length (cm)")
-ax.set_ylabel("Frequency")
 
-#Add a title
-ax.set_title("Petal Length")
+#Main program
+#Call the function to create histograms for each variable.......May be a more efficient way to do this.....come back to it later.
+#(Look to see if you can call the function in a loop or something.....)
+create_histogram(df, "sepal_length")
+create_histogram(df, "sepal_width")
+create_histogram(df, "petal_length")
+create_histogram(df, "petal_width")
+create_scatter_plot(df, "sepal_length", "sepal_width")
+create_scatter_plot(df, "petal_length", "petal_width")
+create_scatter_plot(df, "sepal_length", "petal_length")
+create_scatter_plot(df, "sepal_width", "petal_width")
+create_pairplot(df)
 
-#Add a legend
-ax.legend()
+#Future work: Thinking out loud.......
+#1. Define a function to create a summary of each variable to a .txt file....what data should be included in the summary?
+#2. Define a function to create a pairplot of the dataset......may be a bit ambitious for me at the moment
+#3. Define a function to create a boxplot for each variable.....can this be done using the same approach as the histogram function?
+#4. Define a function to create a correlation matrix for the dataset....
+#5. Define a function to create a heatmap of the correlation matrix.....
+#6. Define a function to create a violin plot for each variable.....
 
-#Save the plot as a .png file
-plt.savefig("petal_length_histogram.png")
+#Have come across the above named plots and matrices but not sure how to use them yet, or what they are for. Will look into them further.
 
-#Create a histogram of the petal width
 
-fig, ax = plt.subplots()
 
-ax.hist(setosa['petal_width'], bins=10, label="Setosa", color="blue", alpha=0.5)
-ax.hist(versicolor['petal_width'], bins=10, label="Versicolor", color="green", alpha=0.5)
-ax.hist(virginica['petal_width'], bins=10, label="Virginica", color="red", alpha=0.5)
 
-#Set the x and y axis labels
-ax.set_xlabel("petal width (cm)")
-ax.set_ylabel("Frequency")
 
-#Add a title
-ax.set_title("Petal Width")
 
-#Add a legend
-ax.legend()
 
-#Save the plot as a .png file
-plt.savefig("petal_width_histogram.png")
+
+
+
+
+
 
 
