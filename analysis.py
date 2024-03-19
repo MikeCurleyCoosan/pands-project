@@ -8,19 +8,24 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Load the iris dataset. The dataset used in this project is taken from the UCI website. https://archive.ics.uci.edu/dataset/53/iris
+#Create a variable to store the name of the file to write the summary of the dataset too. 
+#Capital letters are used to indicate that this is a constant and should not be changed.
+FILENAME = "summary.txt"
+
+#Load the iris dataset. The dataset used in this project is taken from the UCI website. https://archive.ics.uci.edu/dataset/53/iris
 #The dataset contained no headers so I added them in the names parameter. Reference: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html
 df = pd.read_csv('iris.data', header=None, names=['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species'])
 
 # Create a function to display a summary of the dataset into a file called summary.txt
-def create_summary(df):
+def create_summary(df, FILENAME): #The function takes in two parameters, the dataframe and the name of the file to write the summary to.
+    FILENAME = "summary.txt"
 
     #Create a file called summary.text and have the file ready to write to. If the file already exists it will be overwritten.
     with open('summary.txt', 'w') as file:
 
         #Write the first line to the file
         file.write("Summary of the Iris Dataset\n")
-        file.write("\n  ")
+        file.write("\n")
 
         file.write("****************************************************************************************************\n")
 
@@ -47,32 +52,40 @@ def create_summary(df):
         rows_columns = df.shape #The number of rows and columns in the dataset
         file.write("Number of rows: " + str(rows_columns[0]) + "\n")  #The number of rows in the dataset
         file.write("Number of columns: " + str(rows_columns[1]) + "\n")  #The number of columns in the dataset
-
         file.write("\n")
 
         file.write("****************************************************************************************************\n")
-    '''
+    
         #Write the number of missing values in the dataset to the file
-        file.write("Number of missing values in the dataset\n")
-        file.write(df.isnull().sum())
+        file.write('\n')
+        file.write("Number of missing values in the dataset\n\n")
+        file.write(df.isnull().sum().to_string() + "\n")  #The number of missing values in the dataset
+        file.write("\n")
+
 
         file.write("****************************************************************************************************\n")
 
         #Write the number of duplicates in the dataset to the file
+        file.write('\n')
         file.write("Number of duplicates in the dataset\n")
-        file.write(df.duplicated().sum())
+        file.write(str(df.duplicated().sum()) + "\n")  #The number of duplicates in the dataset
+        file.write("\n")
 
         file.write("****************************************************************************************************\n")
 
         #Write the number of unique values in the dataset to the file
+        file.write('\n')
         file.write("Number of unique values in the dataset\n")
-        file.write(df.nunique())
+        file.write(df.nunique().to_string() + "\n")  #The number of unique values in the dataset
+        file.write("\n")
 
         file.write("****************************************************************************************************\n")
 
         #Checking the group size of each species
+        file.write('\n')
         file.write("Group size of each species\n")
-        file.write(df.groupby('species').size())
+        file.write(df.groupby('species').size().to_string() + "\n")  #The group size of each species
+        file.write("\n")
 
         file.write("****************************************************************************************************\n")
 
@@ -183,7 +196,10 @@ def create_pairplot(df):
 #Main program
 #Call the function to create histograms for each variable.......May be a more efficient way to do this.....come back to it later.
 #(Look to see if you can call the function in a loop or something.....)
-create_summary(df)
+
+
+
+create_summary(df, FILENAME)
 create_histogram(df, "sepal_length")
 create_histogram(df, "sepal_width")
 create_histogram(df, "petal_length")
@@ -193,7 +209,6 @@ create_scatter_plot(df, "petal_length", "petal_width")
 create_scatter_plot(df, "sepal_length", "petal_length")
 create_scatter_plot(df, "sepal_width", "petal_width")
 create_pairplot(df)
-
 
 #Future work: Thinking out loud.......
 #1. Define a function to create a summary of each variable to a .txt file....what data should be included in the summary?
@@ -205,7 +220,7 @@ create_pairplot(df)
 
 #Have come across the above named plots and matrices but not sure how to use them yet, or what they are for. Will look into them further.
 
-'''
+
 
 
 
