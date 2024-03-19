@@ -4,7 +4,7 @@ TaskList
 - [x] Download the data set and add it to my repository.
 - [x] Write a program called analysis.py that:
 - [ ] Outputs a summary of each variable to a single text file,
-- [ ] Saves a histogram of each variable to png files, and
+- [x] Saves a histogram of each variable to png files, and
 - [ ] Outputs a scatter plot of each pair of variables.
 - [ ] Performs any other analysis you think is appropriate.
 - [ ] Upload the github repository to VLE
