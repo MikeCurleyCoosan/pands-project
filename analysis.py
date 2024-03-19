@@ -163,8 +163,10 @@ def create_pairplot(df):
     #https://realpython.com/python-histograms/
     fig, ax = plt.subplots(2,2)
 
-    #Create the pairplot for the dataset
+    fig.tight_layout(pad=3.0) #Add some padding to the subplots
 
+    #Create the pairplot for the dataset
+    #
     ax[0,0].scatter(df["sepal_length"], df["sepal_width"], label="Sepal Length vs Sepal Width", facecolor="blue")
     ax[0,1].scatter(df["petal_length"], df["petal_width"], label="Petal Length vs Petal Width", facecolor="green")
     ax[1,0].scatter(df["sepal_length"], df["petal_length"], label="Sepal Length vs Petal Length", facecolor="red")
@@ -188,16 +190,10 @@ def create_pairplot(df):
     ax[1,1].grid()
 
     #Add a title
-    ax[0,0].set_title("Iris Sepal Length vs Sepal Width")
-    ax[0,1].set_title("Iris Petal Length vs Petal Width")
-    ax[1,0].set_title("Iris Sepal Length vs Petal Length")
-    ax[1,1].set_title("Iris Sepal Width vs Petal Width")
-
-    #Add a legend
-    ax[0,0].legend()
-    ax[0,1].legend()
-    ax[1,0].legend()
-    ax[1,1].legend()
+    ax[0,0].set_title("Sepal Length vs Sepal Width")
+    ax[0,1].set_title("Petal Length vs Petal Width")
+    ax[1,0].set_title("Sepal Length vs Petal Length")
+    ax[1,1].set_title("Sepal Width vs Petal Width")
 
     #Save the plot as a .png file
     plt.savefig("pairplot.png")
