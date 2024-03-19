@@ -144,6 +144,7 @@ create_scatter_plot(df, "sepal_length", "sepal_width")
 create_scatter_plot(df, "petal_length", "petal_width")
 create_scatter_plot(df, "sepal_length", "petal_length")
 create_scatter_plot(df, "sepal_width", "petal_width")
+create_pairplot(df)
 
 #Future work: Thinking out loud.......
 #1. Define a function to create a summary of each variable to a .txt file....what data should be included in the summary?
