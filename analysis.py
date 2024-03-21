@@ -25,8 +25,8 @@ def create_summary(df, FILENAME): #The function takes in two parameters, the dat
 
         #Write the first line to the file
         file.write("Summary of the Iris Dataset\n")
-        file.write("\n")
-
+        file.write("\n") #Add a new line to the file
+        #
         file.write("****************************************************************************************************\n")
 
         #Write the first 10 rows of the dataset to the file
@@ -89,10 +89,12 @@ def create_summary(df, FILENAME): #The function takes in two parameters, the dat
 
         file.write("****************************************************************************************************\n")
 
+
+
 #Final version of the code to create a histogram for each variable for each species on the same plot
 #Create a function to create histograms for each variable
 def create_histogram(df, variable): #The function takes in two parameters, the dataframe and the variable to create the histogram foran
-    #Using the dataframe we can create local variable for each species
+    #Using the dataframe we can create local variable for each species, therefore we can amalgamate each species onto our histogram in different colours
     setosa = df[df.species == "Iris-setosa"]
     versicolor = df[df.species=='Iris-versicolor']
     virginica = df[df.species=='Iris-virginica']
@@ -104,22 +106,29 @@ def create_histogram(df, variable): #The function takes in two parameters, the d
 
     #Create the histogram for the same variable for each species on the one plot. Therefore three histograms will be 
     #created on the same plot.
-    ax.hist(setosa[variable], bins=10, label="Setosa", color="blue", alpha=0.5)
+    ax.hist(setosa[variable], bins=10, label="Setosa", color="blue", alpha=0.5) #The alpha parameter is used to make the bars transparent
     ax.hist(versicolor[variable], bins=10, label="Versicolor", color="green", alpha=0.5)
     ax.hist(virginica[variable], bins=10, label="Virginica", color="red", alpha=0.5)
 
+    #Set the font for the x and y axis labels and the title
+    font1 = {'family':'serif','color':'blue','size':20}
+    font2 = {'family':'serif','color':'darkred','size':15}
+
     #Set the x and y axis labels
-    ax.set_xlabel(variable)
-    ax.set_ylabel("Frequency")
+    ax.set_xlabel(variable, fontdict=font2)
+    ax.set_ylabel("Frequency", fontdict=font2)
     
     #Add a title
-    ax.set_title(variable)
+    ax.set_title(variable, fontdict=font1)
 
     #Add a legend
     ax.legend()
 
     #Save the plot as a .png file
     plt.savefig(variable + "_histogram.png")
+
+#todo: Try and figure out how to take in values for the x and y scale for the scatter plot function....
+
 
 #Use same approach as above to create a scatter plot for each pair of variables. Therefore we create a function to create the scatter plots
 def create_scatter_plot(df, x, y): #The function takes in three parameters, the dataframe and the two variables to create the scatter plot for
@@ -140,15 +149,19 @@ def create_scatter_plot(df, x, y): #The function takes in three parameters, the 
     ax.scatter(versicolor[x], versicolor[y], label="Versicolor", facecolor="green")
     ax.scatter(virginica[x], virginica[y], label="Virginica", facecolor="red")
 
+    #Set the font for the x and y axis labels and the title
+    font1 = {'family':'serif','color':'blue','size':20}
+    font2 = {'family':'serif','color':'darkred','size':15}
+
     #Set the x and y axis labels
-    ax.set_xlabel(x + " (cm)")
-    ax.set_ylabel(y + " (cm)")
+    ax.set_xlabel(x + " (cm)", fontdict=font2)
+    ax.set_ylabel(y + " (cm)", fontdict=font2)
 
     #Add a grid
     ax.grid()
 
     #Add a title
-    ax.set_title("Iris " + x + " vs " + y)
+    ax.set_title("Iris " + x + " vs " + y, fontdict=font1)
 
     #Add a legend
     ax.legend()
