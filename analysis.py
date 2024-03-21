@@ -110,7 +110,7 @@ def create_histogram(df, variable): #The function takes in two parameters, the d
     ax.hist(versicolor[variable], bins=10, label="Versicolor", color="green", alpha=0.5)
     ax.hist(virginica[variable], bins=10, label="Virginica", color="red", alpha=0.5)
 
-    #Set the font for the x and y axis labels and the title
+    #Set the font for the x and y axis labels and the title (https://www.w3schools.com/python/matplotlib_labels.asp)
     font1 = {'family':'serif','color':'blue','size':20}
     font2 = {'family':'serif','color':'darkred','size':15}
 
@@ -149,7 +149,7 @@ def create_scatter_plot(df, x, y): #The function takes in three parameters, the 
     ax.scatter(versicolor[x], versicolor[y], label="Versicolor", facecolor="green")
     ax.scatter(virginica[x], virginica[y], label="Virginica", facecolor="red")
 
-    #Set the font for the x and y axis labels and the title
+    #Set the font for the x and y axis labels and the title (https://www.w3schools.com/python/matplotlib_labels.asp)
     font1 = {'family':'serif','color':'blue','size':20}
     font2 = {'family':'serif','color':'darkred','size':15}
 
@@ -161,7 +161,7 @@ def create_scatter_plot(df, x, y): #The function takes in three parameters, the 
     ax.grid()
 
     #Add a title
-    ax.set_title("Iris " + x + " vs " + y, fontdict=font1)
+    ax.set_title("Iris " + x.capitalize().replace('_', ' ') + " vs " + y.capitalize().replace('_', ' '), fontdict=font1)
 
     #Add a legend
     ax.legend()
