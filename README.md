@@ -66,6 +66,7 @@ The Iris Dataset remains a popular example as an introduction to exploratory dat
 
 Iris dataset [01](#references) used in this analysis can be found among files in this repository as iris_data.csv.
 
+
 ### ***Variable Classification***
 
 For efficient data handling and modlelling in Python, it is imperative to choose the correct variable types to represent the various datasets we are modelling. Numerical data types can be represented using Pythons built in native data types while categorical variables are best represented as categorical data types in pandas for memory efficiency and best performance.
@@ -100,5 +101,7 @@ About me....
 - Reference #3: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html
 - Reference #4: https://realpython.com/python-histograms/ 
 - Reference #5: https://realpython.com/python-matplotlib-guide/
-- Reference #6: 
+- Reference #6: https://www.geeksforgeeks.org/exploratory-data-analysis-on-iris-dataset/
+- Reference #7: https://levelup.gitconnected.com/unveiling-the-mysteries-of-the-iris-dataset-a-comprehensive-analysis-and-machine-learning-f5c4f9dbcd6d
+- Reference #8: 
 

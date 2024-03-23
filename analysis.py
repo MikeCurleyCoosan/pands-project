@@ -32,6 +32,7 @@ def create_summary(df, FILENAME): #The function takes in two parameters, the dat
         #Write the first 10 rows of the dataset to the file
         file.write('\n')
         file.write("First 10 rows of the dataset\n\n")
+        #https://www.grepper.com/answers/242389/dataframe+to+txt
         file.write(df.head(10).to_string() + "\n")  #The first 10 rows of the dataset
         file.write("\n")
 
@@ -40,6 +41,10 @@ def create_summary(df, FILENAME): #The function takes in two parameters, the dat
         # Write a summary of the dataset to the file
         file.write('\n')
         file.write("Summary of the dataset\n\n")
+        #The describe() function applies basic statistical computations on the dataset like extreme values, 
+        #count of data points standard deviation, etc. Any missing value or NaN value is automatically skipped. 
+        #describe() function gives a good picture of the distribution of data
+        #https://www.geeksforgeeks.org/exploratory-data-analysis-on-iris-dataset/
         file.write(df.describe().to_string() + "\n")  #The summary of the dataset
         file.write("\n")
 
@@ -213,16 +218,24 @@ def create_pairplot(df):
     #Save the plot as a .png file
     plt.savefig("pairplot.png")
    
+def get_variables(df):
+    #Get the variables in the dataset
+    variables = df.columns.to_numpy()
+    variables = np.delete(variables, 4) #Remove the species variable from the list of variables
+    return variables
 
 #Main program
 #Call the function to create histograms for each variable.......May be a more efficient way to do this.....come back to it later.
 #(Look to see if you can call the function in a loop or something.....)
 
+
 create_summary(df, FILENAME)
-create_histogram(df, "sepal_length")
-create_histogram(df, "sepal_width")
-create_histogram(df, "petal_length")
-create_histogram(df, "petal_width")
+
+my_var = get_variables(df)
+for variable in my_var:
+    create_histogram(df, variable)
+
+
 create_scatter_plot(df, "sepal_length", "sepal_width")
 create_scatter_plot(df, "petal_length", "petal_width")
 create_scatter_plot(df, "sepal_length", "petal_length")
