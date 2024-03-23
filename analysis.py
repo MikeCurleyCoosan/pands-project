@@ -173,6 +173,74 @@ def create_scatter_plot(df, x, y): #The function takes in three parameters, the 
 
     #Save the plot as a .png file
     plt.savefig("Plots/" + x + "_vs_" + y + "_scatter.png")
+'''
+def create_boxplot(df, variable): #The function takes in two parameters, the dataframe and the variable to create the boxplot for
+
+    setosa = df[df.species == "Iris-setosa"]
+    versicolor = df[df.species=='Iris-versicolor']
+    virginica = df[df.species=='Iris-virginica']
+
+    colors = ['red', 'green', 'blue'] #The colours for the boxplots
+
+    #The stateless approach to creating a boxplot as recommended by real python website
+    fig, ax = plt.subplots(1,3)
+
+    #Create the boxplot for the variable for each species on the one plot. Therefore three boxplots will be
+    #created on the same plot.
+    ax[0].boxplot(setosa[variable], patch_artist=True, labels=['setosa'], boxprops=dict(color=colors[0]))
+    ax[1].boxplot(versicolor[variable], patch_artist=True, labels=['versicolor'], boxprops=dict(color=colors[1]))
+    ax[2].boxplot(virginica[variable], patch_artist=True, labels=['virginica'], boxprops=dict(color=colors[2]))
+
+    #Set the font for the x and y axis labels and the title (https://www.w3schools.com/python/matplotlib_labels.asp)
+    font1 = {'family':'serif','color':'blue','size':20}
+    font2 = {'family':'serif','color':'darkred','size':15}
+
+    fig.suptitle("Boxplot of " + variable.capitalize().replace('_', ' '), fontdict=font1)
+
+    min = df[variable].min() - 0.2
+    max = df[variable].max() + 0.2
+
+    ax[0].set_ylim(min, max)
+    ax[1].set_ylim(min, max)
+    ax[2].set_ylim(min, max)
+
+    fig.tight_layout(pad=3.0) #Add some padding to the subplots
+
+    #Save the plot as a .png file
+    plt.savefig("Plots/" + variable + "_boxplot.png")
+'''
+def create_boxplot(df, variable): #The function takes in two parameters, the dataframe and the variable to
+
+    setosa = df[df.species == "Iris-setosa"]
+    versicolor = df[df.species=='Iris-versicolor']
+    virginica = df[df.species=='Iris-virginica']
+
+    colors = ['red', 'green', 'blue'] #The colours for the boxplots
+
+    #The stateless approach to creating a boxplot as recommended by real python website
+    fig, ax = plt.subplots()
+
+    #Create the boxplot for the variable for each species on the one plot. Therefore three boxplots will b
+    #created on the same plot.
+    ax.boxplot(setosa[variable], positions=[2], widths=1.5, patch_artist=True, labels=['setosa'], boxprops=dict(color=colors[0]))
+    ax.boxplot(versicolor[variable], positions=[4], widths=1.5, patch_artist=True, labels=['versicolor'], boxprops=dict(color=colors[1]))
+    ax.boxplot(virginica[variable], positions=[6], widths=1.5, patch_artist=True, labels=['virginica'], boxprops=dict(color=colors[2]))
+
+    #Set the font for the x and y axis labels and the title 
+    font1 = {'family':'serif','color':'blue','size':20}
+    font2 = {'family':'serif','color':'darkred','size':15}
+
+    fig.suptitle("Boxplot of " + variable.capitalize().replace('_', ' '), fontdict=font1)
+
+    min = df[variable].min() - 0.2
+    max = df[variable].max() + 0.2
+
+    ax.set_ylim(min, max)
+
+    fig.tight_layout(pad=3.0) #Add some padding to the subplots
+
+    #Save the plot as a .png file
+    plt.savefig("Plots/" + variable + "_boxplot.png")
 
 #Create a function to create a pairplot of the dataset without using the seaborn library
 def create_pairplot(df):
@@ -234,6 +302,7 @@ my_var = get_variables(df)
 #Loop through the variables and call the function to create a histogram for each variable
 for variable in my_var:
     create_histogram(df, variable)
+    create_boxplot(df, variable)
 
 #Create a scatter-plot for each pair of variables  
 #Get the variables in the dataset
