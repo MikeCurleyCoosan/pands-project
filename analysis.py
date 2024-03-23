@@ -222,9 +222,9 @@ def create_boxplot(df, variable): #The function takes in two parameters, the dat
 
     #Create the boxplot for the variable for each species on the one plot. Therefore three boxplots will b
     #created on the same plot.
-    ax.boxplot(setosa[variable], positions=[2], widths=1.5, patch_artist=True, labels=['setosa'], boxprops=dict(color=colors[0]))
-    ax.boxplot(versicolor[variable], positions=[4], widths=1.5, patch_artist=True, labels=['versicolor'], boxprops=dict(color=colors[1]))
-    ax.boxplot(virginica[variable], positions=[6], widths=1.5, patch_artist=True, labels=['virginica'], boxprops=dict(color=colors[2]))
+    ax.boxplot(setosa[variable], positions=[2], widths=1.5, patch_artist=True, labels=['setosa'], boxprops=dict(facecolor=colors[2], color='black'))
+    ax.boxplot(versicolor[variable], positions=[4], widths=1.5, patch_artist=True, labels=['versicolor'], boxprops=dict(facecolor=colors[1], color='black'))
+    ax.boxplot(virginica[variable], positions=[6], widths=1.5, patch_artist=True, labels=['virginica'], boxprops=dict(facecolor=colors[0], color='black'))
 
     #Set the font for the x and y axis labels and the title 
     font1 = {'family':'serif','color':'blue','size':20}
