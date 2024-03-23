@@ -78,6 +78,26 @@ Why the project is useful
 
 ### Get Started
 
+
+1. Clone the repository to your local machine. 
+
+```sh
+git clone https://github.com/MikeCurleyCoosan/pands-project.git
+
+```
+2. Download and install [Anaconda](https://www.anaconda.com/). Anaconda comes with its own set of pre-installed data science packages and tools, making it convenient for 
+beginners to set up their environment quickly. The pre-installed packages that are required to work with the project are [Pandas](https://pandas.pydata.org/), [NumPy]
+(https://numpy.org/) and [Matplotlib](https://matplotlib.org/).
+
+3. Download and install [Visual Studio Code](https://code.visualstudio.com/). Visual Studio Code is a code editor with support for development operations like debugging, 
+task running, and version control.
+
+4. Download and install the latest version of [Git](https://git-scm.com/). Git is a free and open source version control system designed to handle everything from small to 
+very large projects with speed and efficiency.
+
+5. Navigate to the project directory in VS Code
+
+
 I used [Open in Colab](https://openincolab.com/) to generate the following clickable link. It opens the 'iris_dataset.ipynb' notebooks in [Google Colab](https://colab.research.google.com/).
 
 
@@ -103,5 +123,7 @@ About me....
 - Reference #5: https://realpython.com/python-matplotlib-guide/
 - Reference #6: https://www.geeksforgeeks.org/exploratory-data-analysis-on-iris-dataset/
 - Reference #7: https://levelup.gitconnected.com/unveiling-the-mysteries-of-the-iris-dataset-a-comprehensive-analysis-and-machine-learning-f5c4f9dbcd6d
-- Reference #8: 
+- Reference #8: https://www.geeksforgeeks.org/python-basics-of-pandas-using-iris-dataset/
+- Reference #9: https://towardsdatascience.com/the-iris-dataset-a-little-bit-of-history-and-biology-fb4812f5a7b5
+- Reference #10: 
 
