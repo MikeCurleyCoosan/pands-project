@@ -235,13 +235,69 @@ def create_pairplot(df):
     #https://realpython.com/python-histograms/
     fig, ax = plt.subplots(2,2)
 
-    fig.tight_layout(pad=3.0) #Add some padding to the subplots
+    #Add some padding to the subplots
+    fig.tight_layout(pad=3.0) 
+
+    #Create local variables for each species
+    setosa = df[df.species == "Iris-setosa"]
+    versicolor = df[df.species=='Iris-versicolor']
+    virginica = df[df.species=='Iris-virginica']
+    #  Create a list of colours to use for the boxplots
+    colors = ['red', 'green', 'blue'] #The colours for the boxplots
+
+    x1_min = df['sepal_length'].min() - 0.2
+    x1_max = df['sepal_length'].max() + 0.2
+    y1_min = df['sepal_width'].min() - 0.2
+    y1_max = df['sepal_width'].max() + 0.2
+
+    ax[0,0].set_xlim(x1_min, x1_max)
+    ax[0,0].set_ylim(y1_min, y1_max)
+
+    x2_min = df['petal_length'].min() - 0.2
+    x2_max = df['petal_length'].max() + 0.2
+    y2_min = df['petal_width'].min() - 0.2
+    y2_max = df['petal_width'].max() + 0.2
+
+    ax[0,1].set_xlim(x2_min, x2_max)
+    ax[0,1].set_ylim(y2_min, y2_max)
+
+    x3_min = df['sepal_length'].min() - 0.2
+    x3_max = df['sepal_length'].max() + 0.2
+    y3_min = df['petal_length'].min() - 0.2
+    y3_max = df['petal_length'].max() + 0.2
+
+    ax[1,0].set_xlim(x3_min, x3_max)
+    ax[1,0].set_ylim(y3_min, y3_max)
+
+    x4_min = df['sepal_width'].min() - 0.2
+    x4_max = df['sepal_width'].max() + 0.2
+    y4_min = df['petal_width'].min() - 0.2
+    y4_max = df['petal_width'].max() + 0.2
+
+    ax[1,1].set_xlim(x4_min, x4_max)
+    ax[1,1].set_ylim(y4_min, y4_max)
+
 
     #Create the pairplot for the dataset
-    ax[0,0].scatter(df["sepal_length"], df["sepal_width"], label="Sepal Length vs Sepal Width", facecolor="blue") #Create the scatter plot for sepal length vs sepal width
-    ax[0,1].scatter(df["petal_length"], df["petal_width"], label="Petal Length vs Petal Width", facecolor="green") #Create the scatter plot for petal length vs petal width
-    ax[1,0].scatter(df["sepal_length"], df["petal_length"], label="Sepal Length vs Petal Length", facecolor="red") #Create the scatter plot for sepal length vs petal length
-    ax[1,1].scatter(df["sepal_width"], df["petal_width"], label="Sepal Width vs Petal Width", facecolor="yellow")  #Create the scatter plot for sepal width vs petal width
+    ax[0,0].scatter(setosa["sepal_length"], setosa["sepal_width"], label="Sepal Length vs Sepal Width", facecolor="blue") 
+    #Create the scatter plot for sepal length vs sepal width
+    ax[0,0].scatter(versicolor["sepal_length"], versicolor["sepal_width"], label="Sepal Length vs Sepal Width", facecolor="green")
+    ax[0,0].scatter(virginica["sepal_length"], virginica["sepal_width"], label="Sepal Length vs Sepal Width", facecolor="red")
+
+    ax[0,1].scatter(setosa["petal_length"], setosa["petal_width"], label="Petal Length vs Petal Width", facecolor="blue") 
+    #Create the scatter plot for petal length vs petal width
+    ax[0,1].scatter(versicolor["petal_length"], versicolor["petal_width"], label="Petal Length vs Petal Width", facecolor="green")
+    ax[0,1].scatter(virginica["petal_length"], virginica["petal_width"], label="Petal Length vs Petal Width", facecolor="red")
+
+    ax[1,0].scatter(setosa["sepal_length"], setosa["petal_length"], label="Sepal Length vs Petal Length", facecolor="blue") 
+    #Create the scatter plot for sepal length vs petal length
+    ax[1,0].scatter(versicolor["sepal_length"], versicolor["petal_length"], label="Sepal Length vs Petal Length", facecolor="green")
+    ax[1,0].scatter(virginica["sepal_length"], virginica["petal_length"], label="Sepal Length vs Petal Length", facecolor="red")
+
+    ax[1,1].scatter(setosa["sepal_width"], setosa["petal_width"], label="Sepal Width vs Petal Width", facecolor="blue")  
+    #Create the scatter plot for sepal width vs petal width
+    ax[1,1].scatter(versicolor["sepal_width"], versicolor["petal_width"], label="Sepal Width vs Petal Width", facecolor="green")
+    ax[1,1].scatter(virginica["sepal_width"], virginica["petal_width"], label="Sepal Width vs Petal Width", facecolor="red")
 
     #Set the x and y axis labels
     ax[0,0].set_xlabel("Sepal Length (cm)") #Set the x axis label for the first subplot
@@ -270,7 +326,7 @@ def create_pairplot(df):
     ax[1,1].set_title("Sepal Width vs Petal Width") #Add a title to the fourth subplot
 
     #Save the plot as a .png file
-    plt.savefig("pairplot.png")
+    plt.savefig("Plots/pairplot.png")
    
 def get_variables(df):
     #Get the variables in the dataset
@@ -297,6 +353,9 @@ my_var = get_variables(df)
 for i in range(len(my_var)):
     for j in range(i+1, len(my_var)):
         create_scatter_plot(df, my_var[j], my_var[i])
+
+#Create a pairplot of the dataset
+create_pairplot(df)
 
 
 
