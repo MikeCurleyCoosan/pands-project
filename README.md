@@ -93,6 +93,46 @@ For efficient data handling and modlelling in Python, it is imperative to choose
 
 Why the project is useful
 
+```python
+
+def create_histogram(df, variable): 
+    setosa = df[df.species == "Iris-setosa"]
+    versicolor = df[df.species=='Iris-versicolor']
+    virginica = df[df.species=='Iris-virginica']
+    fig, ax = plt.subplots()
+    ax.hist(setosa[variable], bins=10, label="Setosa", color="blue", alpha=0.5, edgecolor='black') 
+    ax.hist(versicolor[variable], bins=10, label="Versicolor", color="green", alpha=0.5, edgecolor='black')
+    ax.hist(virginica[variable], bins=10, label="Virginica", color="red", alpha=0.5, edgecolor='black')
+    font1 = {'family':'serif','color':'blue','size':20}
+    font2 = {'family':'serif','color':'darkred','size':15}
+    ax.set_xlabel(variable.capitalize().replace('_', ' '), fontdict=font2)
+    ax.set_ylabel("Frequency", fontdict=font2)
+    ax.set_title(variable.capitalize().replace('_', ' '), fontdict=font1)
+    ax.legend()
+    plt.savefig("Plots/" + variable + "_histogram.png")
+
+```
+
+```python
+def create_scatter_plot(df, x, y): 
+    setosa = df[df.species == "Iris-setosa"]
+    versicolor = df[df.species=='Iris-versicolor']
+    virginica = df[df.species=='Iris-virginica']
+    fig, ax = plt.subplots()
+    ax.scatter(setosa[x], setosa[y], label="Setosa", facecolor="blue")
+    ax.scatter(versicolor[x], versicolor[y], label="Versicolor", facecolor="green")
+    ax.scatter(virginica[x], virginica[y], label="Virginica", facecolor="red")
+    font1 = {'family':'serif','color':'blue','size':20}
+    font2 = {'family':'serif','color':'darkred','size':15
+    ax.set_xlabel(x.capitalize().replace('_', ' ')+ " (cm)", fontdict=font2)
+    ax.set_ylabel(y.capitalize().replace('_', ' ') + " (cm)", fontdict=font2)
+    ax.grid()
+    ax.set_title("Iris " + x.capitalize().replace('_', ' ') + " vs " + y.capitalize().replace('_', ' '), fontdict=font1)
+    ax.legend()
+    plt.savefig("Plots/" + x + "_vs_" + y + "_scatter.png")
+
+
+```
 ### Get Started
 
 
