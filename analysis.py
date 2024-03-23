@@ -225,22 +225,30 @@ def get_variables(df):
     return variables
 
 #Main program
-#Call the function to create histograms for each variable.......May be a more efficient way to do this.....come back to it later.
-#(Look to see if you can call the function in a loop or something.....)
-
-
+#Call the function to create the summary of the dataset
 create_summary(df, FILENAME)
 
+#Create a histogram for each variable
+#Get the variables in the dataset
 my_var = get_variables(df)
+#Loop through the variables and call the function to create a histogram for each variable
 for variable in my_var:
     create_histogram(df, variable)
 
+#Create a scatter-plot for each pair of variables  
+#Get the variables in the dataset
+my_var = get_variables(df)  
+#Loop through the variables and call the function to create a scatter plot for each pair of variables
+for i in range(len(my_var)):
+    for j in range(i+1, len(my_var)):
+        create_scatter_plot(df, my_var[j], my_var[i])
 
-create_scatter_plot(df, "sepal_length", "sepal_width")
-create_scatter_plot(df, "petal_length", "petal_width")
-create_scatter_plot(df, "sepal_length", "petal_length")
-create_scatter_plot(df, "sepal_width", "petal_width")
-create_pairplot(df)
+
+
+
+
+
+
 
 #Future work: Thinking out loud.......
 #1. Summary.txt file.....Research and see if anything else should be included in the summary of the dataset?? Examples. skewness, kurtosis, etc.
