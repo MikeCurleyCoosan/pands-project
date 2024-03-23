@@ -130,7 +130,7 @@ def create_histogram(df, variable): #The function takes in two parameters, the d
     ax.legend()
 
     #Save the plot as a .png file
-    plt.savefig(variable + "_histogram.png")
+    plt.savefig("Images_from_running_analysis.py/" + variable + "_histogram.png")
 
 #todo: Try and figure out how to take in values for the x and y scale for the scatter plot function....
 
@@ -172,7 +172,7 @@ def create_scatter_plot(df, x, y): #The function takes in three parameters, the 
     ax.legend()
 
     #Save the plot as a .png file
-    plt.savefig(x + "_vs_" + y + "_scatter.png")
+    plt.savefig("Images_from_running_analysis.py/" + x + "_vs_" + y + "_scatter.png")
 
 #Create a function to create a pairplot of the dataset without using the seaborn library
 def create_pairplot(df):
