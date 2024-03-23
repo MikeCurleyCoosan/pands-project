@@ -173,56 +173,30 @@ def create_scatter_plot(df, x, y): #The function takes in three parameters, the 
 
     #Save the plot as a .png file
     plt.savefig("Plots/" + x + "_vs_" + y + "_scatter.png")
-'''
-def create_boxplot(df, variable): #The function takes in two parameters, the dataframe and the variable to create the boxplot for
 
-    setosa = df[df.species == "Iris-setosa"]
-    versicolor = df[df.species=='Iris-versicolor']
-    virginica = df[df.species=='Iris-virginica']
-
-    colors = ['red', 'green', 'blue'] #The colours for the boxplots
-
-    #The stateless approach to creating a boxplot as recommended by real python website
-    fig, ax = plt.subplots(1,3)
-
-    #Create the boxplot for the variable for each species on the one plot. Therefore three boxplots will be
-    #created on the same plot.
-    ax[0].boxplot(setosa[variable], patch_artist=True, labels=['setosa'], boxprops=dict(color=colors[0]))
-    ax[1].boxplot(versicolor[variable], patch_artist=True, labels=['versicolor'], boxprops=dict(color=colors[1]))
-    ax[2].boxplot(virginica[variable], patch_artist=True, labels=['virginica'], boxprops=dict(color=colors[2]))
-
-    #Set the font for the x and y axis labels and the title (https://www.w3schools.com/python/matplotlib_labels.asp)
-    font1 = {'family':'serif','color':'blue','size':20}
-    font2 = {'family':'serif','color':'darkred','size':15}
-
-    fig.suptitle("Boxplot of " + variable.capitalize().replace('_', ' '), fontdict=font1)
-
-    min = df[variable].min() - 0.2
-    max = df[variable].max() + 0.2
-
-    ax[0].set_ylim(min, max)
-    ax[1].set_ylim(min, max)
-    ax[2].set_ylim(min, max)
-
-    fig.tight_layout(pad=3.0) #Add some padding to the subplots
-
-    #Save the plot as a .png file
-    plt.savefig("Plots/" + variable + "_boxplot.png")
-'''
+#Create a function to create a boxplot for each variable
 def create_boxplot(df, variable): #The function takes in two parameters, the dataframe and the variable to
 
+    #Create local variables for each species
     setosa = df[df.species == "Iris-setosa"]
     versicolor = df[df.species=='Iris-versicolor']
     virginica = df[df.species=='Iris-virginica']
 
+    #Create a list of colours to use for the boxplots
     colors = ['red', 'green', 'blue'] #The colours for the boxplots
 
     #The stateless approach to creating a boxplot as recommended by real python website
     fig, ax = plt.subplots()
 
-    #Create the boxplot for the variable for each species on the one plot. Therefore three boxplots will b
-    #created on the same plot.
+    #Create a boxplot for each variable on one plot. Therefore three boxplots will be created on the same plot.
     ax.boxplot(setosa[variable], positions=[2], widths=1.5, patch_artist=True, labels=['setosa'], boxprops=dict(facecolor=colors[2], color='black'))
+    #positions=[2] is used to position the boxplot on the x-axis
+    #widths=1.5 is used to set the width of the boxplot
+    #patch_artist=True is used to fill the boxplot with colour
+    #labels=['setosa'] is used to label the boxplot
+    #boxprops=dict(facecolor=colors[2], color='black') is used to set the colour of the boxplot
+
+    #We have created a boxplot for setosa and now we need to create a boxplot for versicolor and virginica
     ax.boxplot(versicolor[variable], positions=[4], widths=1.5, patch_artist=True, labels=['versicolor'], boxprops=dict(facecolor=colors[1], color='black'))
     ax.boxplot(virginica[variable], positions=[6], widths=1.5, patch_artist=True, labels=['virginica'], boxprops=dict(facecolor=colors[0], color='black'))
 
@@ -230,14 +204,26 @@ def create_boxplot(df, variable): #The function takes in two parameters, the dat
     font1 = {'family':'serif','color':'blue','size':20}
     font2 = {'family':'serif','color':'darkred','size':15}
 
+    #Add a title to the boxplot
     fig.suptitle("Boxplot of " + variable.capitalize().replace('_', ' '), fontdict=font1)
 
+    #Variables to set the minimum and maximum values for the y-axis
     min = df[variable].min() - 0.2
     max = df[variable].max() + 0.2
 
+    #Set the y-axis limits
     ax.set_ylim(min, max)
 
-    fig.tight_layout(pad=3.0) #Add some padding to the subplots
+    #Add some padding to the subplots
+    fig.tight_layout(pad=3.0) 
+
+    #Set the x and y axis labels
+    ax.set_xlabel("Species", fontdict=font2)
+    ax.set_ylabel(variable.capitalize().replace('_', ' ') + " (cm)", fontdict=font2)
+
+    #Add a grid
+    ax.grid(linestyle='--', linewidth=0.5, color='black', alpha=0.4)
+
 
     #Save the plot as a .png file
     plt.savefig("Plots/" + variable + "_boxplot.png")
