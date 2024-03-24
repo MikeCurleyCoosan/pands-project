@@ -81,7 +81,7 @@ The data was collected in the Gaspé Peninsula in Canada by botanist Edgar Ander
 ### ***2.1 Generate a summary of each variable to a single text file***
 
 
-## <b id="">Sepal Length in cm</b>
+### <b id="">Sepal Length in cm</b>
 |                 | count | mean  | std      | min | 25%   | 50% | 75% | max |
 |-----------------|-------|-------|----------|-----|-------|-----|-----|-----|
 | species         |       |       |          |     |       |     |     |     |
@@ -89,7 +89,7 @@ The data was collected in the Gaspé Peninsula in Canada by botanist Edgar Ander
 | *Iris-versicolor* | 50.0  | 5.936 | 0.516171 | 4.9 | 5.600 | 5.9 | 6.3 | 7.0 |
 | *Iris-virginica*  | 50.0  | 6.588 | 0.635880 | 4.9 | 6.225 | 6.5 | 6.9 | 7.9 |
 
-## <b id="">Sepal Width in cm</b>
+### <b id="">Sepal Width in cm</b>
 |                 | count | mean  | std      | min | 25%   | 50% | 75%   | max |
 |-----------------|-------|-------|----------|-----|-------|-----|-------|-----|
 | species         |       |       |          |     |       |     |       |     |
@@ -97,7 +97,7 @@ The data was collected in the Gaspé Peninsula in Canada by botanist Edgar Ander
 | *Iris-versicolor* | 50.0  | 2.770 | 0.313798 | 2.0 | 2.525 | 2.8 | 3.000 | 3.4 |
 | *Iris-virginica*  | 50.0  | 2.974 | 0.322497 | 2.2 | 2.800 | 3.0 | 3.175 | 3.8 |
 
-## <b id="">Petal Length in cm</b>
+### <b id="">Petal Length in cm</b>
 |                 | count | mean  | std      | min | 25% | 50%  | 75%   | max |
 |-----------------|-------|-------|----------|-----|-----|------|-------|-----|
 | species         |       |       |          |     |     |      |       |     |
@@ -105,7 +105,7 @@ The data was collected in the Gaspé Peninsula in Canada by botanist Edgar Ander
 | *Iris-versicolor* | 50.0  | 4.260 | 0.469911 | 3.0 | 4.0 | 4.35 | 4.600 | 5.1 |
 | *Iris-virginica*  | 50.0  | 5.552 | 0.551895 | 4.5 | 5.1 | 5.55 | 5.875 | 6.9 |
 
-## <b id="">Petal Width in cm</b>
+### <b id="">Petal Width in cm</b>
 |                 | count | mean  | std      | min | 25% | 50% | 75% | max |
 |-----------------|-------|-------|----------|-----|-----|-----|-----|-----|
 | species         |       |       |          |     |     |     |     |     |
