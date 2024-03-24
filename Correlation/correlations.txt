@@ -1,0 +1,18 @@
+Correlation Matrix of the Iris Dataset
+
+****************************************************************************************************
+
+              sepal_length  sepal_width  petal_length  petal_width
+sepal_length      1.000000    -0.109369      0.871754     0.817954
+sepal_width      -0.109369     1.000000     -0.420516    -0.356544
+petal_length      0.871754    -0.420516      1.000000     0.962757
+petal_width       0.817954    -0.356544      0.962757     1.000000
+
+
+****************************************************************************************************
+
+The correlation matrix shows the correlation between each variable in the dataset.
+The correlation coefficient ranges from -1 to 1. If the value is close to 1,
+it means that there is a strong positive correlation between the two variables.
+If the value is close to -1, it means that there is a strong negative correlation between the two variables.
+If the value is close to 0, it means that there is no correlation between the two variables.

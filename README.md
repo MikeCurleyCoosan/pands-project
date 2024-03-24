@@ -65,7 +65,10 @@ well as a list of all references used.The Python script containing the Python co
 #### ***About the Iris Fisher dataset***
 
 
+#### ***About the Iris dataset***
+
 The Iris Fisher dataset is a very popular dataset for data analysis and visualization tasks. It is also known as the Iris Flower dataset and consists of different attribute information for three differen classes of the Iris species. The dataset is quite small, consisting of 50 samples of each of the three different classes, to give a total of 150 instances in total. For each instance the different attributes that were taken were as follows, given below as dataset columns. 
+
 
 #### ***Dataset Columns***
 
@@ -83,7 +86,7 @@ The Iris Dataset remains a popular example as an introduction to exploratory dat
 1. Each of the four features (sepal and petal length and width) are measured in the same units (centimetres).
 1. One iris species (setosa) is linearly separable from the other two. While the other two species have some overlap, they are still distinguishable from one another in certain measurements. As a result classification is relatively easy, and therefore the dataset predictive cababilities are quite strong.
 
-Iris dataset [01](#references) used in this analysis can be found among files in this repository as iris_data.csv.
+Iris dataset used in this analysis can be found among files in this repository as iris.data.
 
 
 ### ***Variable Classification***
