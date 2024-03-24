@@ -196,6 +196,8 @@ The summary tables and histograms complement each other well - the histogram to 
 
 ### ***2.1 Generate a scatter plot of each set of variables***
 
+Scatter plots are used for multivariate analysis and allow us to look at the relationship between two variables at a time. A function called create_scatter_plot has been written to generate the six scatter plots required to plot all combination of variables in a dataset with 4 distinct variables such as the iris dataset - one for each of the two pairs of variables. This function takes in three parameters, the dataframe and the x and y variables you wish to create your scatter plot for. The same function can then be re-used to create all other scatter plots by just changing the variable we are passing into it.
+
 ```python
 def create_scatter_plot(df, x, y): 
     setosa = df[df.species == "Iris-setosa"]
