@@ -223,18 +223,18 @@ def create_scatter_plot(df, x, y):
 ![Petal Width vs Petal Length](https://github.com/MikeCurleyCoosan/pands-project/blob/main/Plots/petal_width_vs_petal_length_scatter.png)
 
 
-## <b id="">Petal Length vs Sepal Length Scatter Plot</b
+## <b id="">Petal Length vs Sepal Length Scatter Plot</b>
 ![Petal Length vs Sepal Length](https://github.com/MikeCurleyCoosan/pands-project/blob/main/Plots/petal_length_vs_sepal_length_scatter.png)
 
 
-## <b id="">Petal Length vs Sepal Width Scatter Plot</b
+## <b id="">Petal Length vs Sepal Width Scatter Plot</b>
 ![Petal Length vs Sepal Width](https://github.com/MikeCurleyCoosan/pands-project/blob/main/Plots/petal_length_vs_sepal_width_scatter.png)
 
 
-## <b id="">Petal Width vs Sepal length Scatter Plot</b
+## <b id="">Petal Width vs Sepal length Scatter Plot</b>
 ![Petal Width vs Sepal Length](https://github.com/MikeCurleyCoosan/pands-project/blob/main/Plots/petal_width_vs_sepal_length_scatter.png)
 
-## <b id="">Petal Width vs Sepal Width Scatter Plot</b
+## <b id="">Petal Width vs Sepal Width Scatter Plot</b>
 ![Petal Width vs Sepal Width](https://github.com/MikeCurleyCoosan/pands-project/blob/main/Plots/petal_width_vs_sepal_width_scatter.png)
 
 
