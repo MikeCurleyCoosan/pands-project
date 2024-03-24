@@ -26,16 +26,8 @@ def create_summary(df, FILENAME): #The function takes in two parameters, the dat
         #Write the first line to the file
         file.write("Summary of the Iris Dataset\n")
         file.write("\n") #Add a new line to the file
-        #
-        file.write("****************************************************************************************************\n")
-
-        #Write the first 10 rows of the dataset to the file
-        file.write('\n')
-        file.write("First 10 rows of the dataset\n\n")
-        #https://www.grepper.com/answers/242389/dataframe+to+txt
-        file.write(df.head(10).to_string() + "\n")  #The first 10 rows of the dataset
-        file.write("\n")
-
+        
+        
         file.write("****************************************************************************************************\n")
 
         # Write a summary of the dataset to the file
