@@ -1,0 +1,16 @@
+The Minimum value for Sepal length is 4.3
+The Maximum value for Sepal length is 7.9
+The Mean value for Sepal length is 5.843333333333334
+The Standard Deviation for Sepal length is 0.8253012917851409
+The Minimum value for Sepal Width is 2.0
+The Maximum value for Sepal Width is 4.4
+The Mean value for Sepal Width is 3.0540000000000003
+The Standard Deviation for Sepal Width is 0.4321465800705435
+The Minimum value for Petal length is 1.0
+The Maximum value for Petal length is 6.9
+The Mean value for Petal length is 3.758666666666666
+The Standard Deviation for Petal length is 1.7585291834055212
+The Minimum value for Petal Width is 0.1
+The Maximum value for Petal Width is 2.5
+The Mean value for Petal Width is 1.1986666666666668
+The Standard Deviation for Petal Width is 0.7606126185881716

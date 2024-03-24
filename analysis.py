@@ -327,7 +327,25 @@ def create_pairplot(df):
 
     #Save the plot as a .png file
     plt.savefig("Plots/pairplot.png")
-   
+'''
+def create_correlation_matrix(df, CORRELATION):
+    #Create a correlation matrix for the dataset
+    CORRELATION.self = CORRELATION
+    CORRELATION = df.corr()
+
+    #Create a file called correlation_matrix.txt and have the file ready to write to. If the file already exists it will be overwritten.
+    with open('correlation_matrix.txt', 'w') as file:
+
+        #Write the correlation matrix to the file
+        file.write("Correlation Matrix of the Iris Dataset\n")
+        file.write("\n") #Add a new line to the file
+        file.write("****************************************************************************************************\n")
+        file.write("\n")
+        file.write(CORRELATION + "\n")  #The correlation matrix of the dataset
+        file.write("\n")
+        file.write("****************************************************************************************************\n")
+'''
+
 def get_variables(df):
     #Get the variables in the dataset
     variables = df.columns.to_numpy()
@@ -337,7 +355,6 @@ def get_variables(df):
 #Main program
 #Call the function to create the summary of the dataset
 create_summary(df, FILENAME)
-
 #Create a histogram for each variable
 #Get the variables in the dataset
 my_var = get_variables(df)
@@ -357,8 +374,21 @@ for i in range(len(my_var)):
 #Create a pairplot of the dataset
 create_pairplot(df)
 
+#Create a correlation matrix for the dataset
+# Correlations
+correlations = df.corr()
+with open("correlations.txt", 'w') as f:
+    f.write("\t\t"+"  Variable Correlations"+"\n") # Add a title to the output table. Tabs and spaces added to format titles similar to other tables
+    f.write(correlations.to_string() + "\n\n")
 
+# Creates a csv file with the correlations table
+correlations.to_csv(r'iris_correlations.csv', sep=',', mode='w')
 
+corr_map = sns.heatmap(correlations, cmap="RdGy", annot=True)
+# fixed an initial issue where axis labels were being cut off: https://stackoverflow.com/questions/33660420/seaborn-ticklabels-are-being-truncated
+corr_map.figure.tight_layout() 
+plt.savefig('Correlation Heatmap.png')
+plt.clf()
 
 
 
