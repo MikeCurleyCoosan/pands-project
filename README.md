@@ -142,12 +142,9 @@ with open('summary.txt', 'w') as file:
 | *Iris-virginica*  | 50.0  | 2.026 | 0.274650 | 1.4 | 1.8 | 2.0 | 2.3 | 2.5 |
 
 
-From the tables, we can see that there is a lot of overlap in sepal length and width between all three species. Of note is that *Iris setosa* typically has a smaller sepal 
-length, than *Iris versicolor* and *Iris virginica*, but despite this *Iris setosa* has wider sepals than the other two species. The biggest difference in species can be 
-seen in the petal length, with *Iris setosa* having much shorter petals than *Iris versicolor*, with *Iris virginica* having the longest petals. In the overall table, we 
-saw the standard deviation for petal length was relatively high, but now when the samples are separated by species, the std is smaller for each. This tells us again that 
-there is a large difference between the species types, but when compared to another sample of the same species, the difference is much smaller. The pattern is similar for 
-petal width, with *Iris setosa* being the narrowest and *Iris virginica* being the widest, but this difference is not as large as it is for petal length.
+From above tables, we can conclude that there is a lot of overlap in sepal length and width between all species. Iris setosa typically has a smaller sepal length, than Iris versicolor and Iris virginica. We can also see that Iris setosa has wider sepals than the other two species. The biggest difference between species can be seen in the petal length, with Iris setosa having much shorter petals than Iris versicolor, and Iris virginica having the longest. 
+
+From the overall table we could see that the standard deviation for petal length was relatively high, but now when the samples are separated by species, the standard deviation is smaller for each. We can conclude from this that there is a large difference between the species types, which skewed the values in the overall table. The pattern is similar for petal width, with Iris setosa being the narrowest and Iris virginica being the widest, but this difference is not as large as it is for petal length.
 
 ### ***2.1 Generate a histogram of each variable***
 
@@ -184,6 +181,18 @@ def create_histogram(df, variable):
 
 ## <b id="">Petal Width Histogram</b>
 ![Petal Width](https://github.com/MikeCurleyCoosan/pands-project/blob/main/Plots/petal_width_histogram.png)
+
+
+While the summary tables when separated by species gave us useful information, plotting this information graphically can tell us about these findings faster than looking 
+through a table of numbers. Many of the conclusions mentioned above after looking at the summary tables can be seen at a glance using histograms. For example, we can see 
+how the petals of *Iris setosa* are all smaller than *Iris versicolor* and *Iris virginica*, and how there is a lot of overlap between all three species when looking at 
+their sepal width. If we were shown three *Iris* flowers at random that were measured for this dataset, one from each species, and tasked with determining what species each 
+flower was, we could be 100% confident in identifying the *Iris setosa* flower by its petal size alone. It would also be reasonable to assume the flower with the largest 
+petals is an *Iris virginica*, but we would be less confident in this answer due to the slight overlap between the petal sizes of *Iris versicolor* and *Iris virginica* 
+among some of the measured samples.
+ 
+The summary tables and histograms complement each other well - the histogram to quickly see patterns in the data, and the tables for precise measurements of the summaries.
+
 
 ### ***2.1 Generate a scatter plot of each set of variables***
 
