@@ -247,9 +247,9 @@ Another useful plot type for analysing data is the [boxplots](https://builtin.co
 
 ![Boxplot](Images/Box.png)
 
+As above, the box itself shows the range of values that lie between the 25% and 75% range, with the line within the box indicating the median. The lines extending outwards from the box are called whiskers, which show the rest of the data except for the outliers, indicated by a symbol beyond the whiskers. Outliers are data points that deviate so far from the norm that they may negatively influence the rest of the analysis. A function called create_boxplot has been written to generate a boxplot for each of the four measured variables. This function takes in two parameters, the dataframe and the variable you wish to create the boxplot for. The same function can 
+then be re-used to create all other boxplots by just changing the variable we are passing into it.
 
-
-[boxplots](https://builtin.com/data-science/boxplot)
 
 ```python
 def create_boxplot(df, variable): 
