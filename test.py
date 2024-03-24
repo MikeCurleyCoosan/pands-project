@@ -21,7 +21,6 @@ with open('test.txt', 'w') as f:
 
     #Having looked back over previous lectures and searching online for a way to tidy up my code 
     #I tried creating a dict which would hold the variable title and its assocaited data
-    #Rough work was carried out in roughwork.py
     #https://learnonline.gmit.ie/pluginfile.php/293981/mod_label/intro/Lab%2005%20dataStructures.pdf 
     #https://jakevdp.github.io/WhirlwindTourOfPython/06-built-in-data-structures.html
 
