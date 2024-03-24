@@ -87,6 +87,11 @@ The first task of the project was to write a program called [analysis.py](https:
 create_summary(df, FILENAME)
 
 ```
+We use the with open function as below to check if a file with the filename summary.txt exists. If this file already exists it is overwritten each time the analysis.py script is run, or if we choose to do so each time the create_summary function is run within that script. 
+
+```python
+with open('summary.txt', 'w') as file:
+```
 
 
 
