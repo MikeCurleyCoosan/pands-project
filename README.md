@@ -84,9 +84,72 @@ The first task of the project was to write a program called [analysis.py](https:
 
 ```python
 
-create_summary(df, FILENAME)
-
+def create_summary(df, FILENAME): 
+    FILENAME = "summary.txt"
+    with open('summary.txt', 'w') as file:
+        file.write("Summary of the Iris Dataset\n")
+        file.write("\n") 
+        file.write("****************************************************************************************************\n")
+        file.write('\n')
+        file.write("Summary of the dataset\n\n")
+        file.write(df.describe().to_string() + "\n")  
+        file.write("\n")
+        file.write("****************************************************************************************************\n")
+        file.write('\n')
+        file.write("Summary of the Sepal Length Variable of the Dataset\n\n")
+        sepal_length_summary = df[["sepal_length", "species"]].groupby("species").describe()
+        file.write(sepal_length_summary.to_string() + "\n\n")
+        file.write("\n")
+        file.write("****************************************************************************************************\n")
+        file.write('\n')
+        file.write("Summary of the Sepal Width Variable of the Dataset\n\n")
+        sepal_width_summary = df[["sepal_width", "species"]].groupby("species").describe()
+        file.write(sepal_width_summary.to_string() + "\n\n")
+        file.write("\n")
+        file.write("****************************************************************************************************\n")
+        file.write('\n')
+        file.write("Summary of the Petal Length Variable of the Dataset\n\n")
+        petal_length_summary = df[["petal_length", "species"]].groupby("species").describe()
+        file.write(petal_length_summary.to_string() + "\n\n")
+        file.write("\n")
+        file.write("****************************************************************************************************\n")
+        file.write('\n')
+        file.write("Summary of the Petal Width Variable of the Dataset\n\n")
+        petal_width_summary = df[["petal_width", "species"]].groupby("species").describe()
+        file.write(petal_width_summary.to_string() + "\n\n")
+        file.write("\n")
+        file.write("****************************************************************************************************\n")
+        file.write('\n')
+        file.write("Number of rows and columns in the dataset\n\n")
+        rows_columns = df.shape 
+        file.write("Number of rows: " + str(rows_columns[0]) + "\n")  
+        file.write("Number of columns: " + str(rows_columns[1]) + "\n")  
+        file.write("\n")
+        file.write("****************************************************************************************************\n")
+        file.write('\n')
+        file.write("Number of missing values in the dataset\n\n")
+        file.write(df.isnull().sum().to_string() + "\n")  
+        file.write("\n")
+        file.write("****************************************************************************************************\n")
+        file.write('\n')
+        file.write("Number of duplicates in the dataset\n")
+        file.write(str(df.duplicated().sum()) + "\n")  
+        file.write("\n")
+        file.write("****************************************************************************************************\n")
+        file.write('\n')
+        file.write("Number of unique values in the dataset\n")
+        file.write(df.nunique().to_string() + "\n")  
+        file.write("\n")
+        file.write("****************************************************************************************************\n")
+        file.write('\n')
+        file.write("Group size of each species\n")
+        file.write(df.groupby('species').size().to_string() + "\n")  
+        file.write("\n")
+        file.write("****************************************************************************************************\n")
 ```
+[describe function](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.describe.html)
+
+
 We use the with open function as below to check if a file with the filename summary.txt exists. If this file already exists it is overwritten each time the analysis.py script is run, or if we choose to do so each time the create_summary function is run within that script. 
 
 ```python
