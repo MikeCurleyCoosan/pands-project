@@ -244,35 +244,39 @@ def create_pairplot(df):
     #  Create a list of colours to use for the boxplots
     colors = ['red', 'green', 'blue'] #The colours for the boxplots
 
+    #Set the minimum and maximum values for the x and y axis for each subplot
     x1_min = df['sepal_length'].min() - 0.2
     x1_max = df['sepal_length'].max() + 0.2
     y1_min = df['sepal_width'].min() - 0.2
     y1_max = df['sepal_width'].max() + 0.2
-
+    #Set the x and y axis limits for the first subplot
     ax[0,0].set_xlim(x1_min, x1_max)
     ax[0,0].set_ylim(y1_min, y1_max)
 
+    #Set the minimum and maximum values for the x and y axis for each subplot
     x2_min = df['petal_length'].min() - 0.2
     x2_max = df['petal_length'].max() + 0.2
     y2_min = df['petal_width'].min() - 0.2
     y2_max = df['petal_width'].max() + 0.2
-
+    #Set the x and y axis limits for the second subplot
     ax[0,1].set_xlim(x2_min, x2_max)
     ax[0,1].set_ylim(y2_min, y2_max)
 
+    #Set the minimum and maximum values for the x and y axis for each subplot
     x3_min = df['sepal_length'].min() - 0.2
     x3_max = df['sepal_length'].max() + 0.2
     y3_min = df['petal_length'].min() - 0.2
     y3_max = df['petal_length'].max() + 0.2
-
+    #Set the x and y axis limits for the third subplot
     ax[1,0].set_xlim(x3_min, x3_max)
     ax[1,0].set_ylim(y3_min, y3_max)
 
+    #Set the minimum and maximum values for the x and y axis for each subplot
     x4_min = df['sepal_width'].min() - 0.2
     x4_max = df['sepal_width'].max() + 0.2
     y4_min = df['petal_width'].min() - 0.2
     y4_max = df['petal_width'].max() + 0.2
-
+    #Set the x and y axis limits for the fourth subplot
     ax[1,1].set_xlim(x4_min, x4_max)
     ax[1,1].set_ylim(y4_min, y4_max)
 
