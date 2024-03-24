@@ -170,16 +170,16 @@ def create_histogram(df, variable):
 
 ```
 
-## <b id="">Sepal Length Histogram</b>
+#### <b id="">Sepal Length Histogram</b>
 ![Sepal Length](https://github.com/MikeCurleyCoosan/pands-project/blob/main/Plots/sepal_length_histogram.png)
 
-## <b id="">Sepal Width Histogram</b>
+#### <b id="">Sepal Width Histogram</b>
 ![Sepal Width](https://github.com/MikeCurleyCoosan/pands-project/blob/main/Plots/sepal_width_histogram.png)
 
-## <b id="">Petal Length Histogram</b>
+#### <b id="">Petal Length Histogram</b>
 ![Petal Length](https://github.com/MikeCurleyCoosan/pands-project/blob/main/Plots/petal_length_histogram.png)
 
-## <b id="">Petal Width Histogram</b>
+#### <b id="">Petal Width Histogram</b>
 ![Petal Width](https://github.com/MikeCurleyCoosan/pands-project/blob/main/Plots/petal_width_histogram.png)
 
 
@@ -216,25 +216,25 @@ def create_scatter_plot(df, x, y):
 
 ```
 
-## <b id="">Sepal Width vs Sepal Length Scatter Plot</b>
+#### <b id="">Sepal Width vs Sepal Length Scatter Plot</b>
 ![Sepal Width vs Sepal Length](https://github.com/MikeCurleyCoosan/pands-project/blob/main/Plots/sepal_width_vs_sepal_length_scatter.png)
 
-## <b id="">Petal Width vs Petal Length Scatter Plot</b>
+#### <b id="">Petal Width vs Petal Length Scatter Plot</b>
 ![Petal Width vs Petal Length](https://github.com/MikeCurleyCoosan/pands-project/blob/main/Plots/petal_width_vs_petal_length_scatter.png)
 
 
-## <b id="">Petal Length vs Sepal Length Scatter Plot</b>
+#### <b id="">Petal Length vs Sepal Length Scatter Plot</b>
 ![Petal Length vs Sepal Length](https://github.com/MikeCurleyCoosan/pands-project/blob/main/Plots/petal_length_vs_sepal_length_scatter.png)
 
 
-## <b id="">Petal Length vs Sepal Width Scatter Plot</b>
+#### <b id="">Petal Length vs Sepal Width Scatter Plot</b>
 ![Petal Length vs Sepal Width](https://github.com/MikeCurleyCoosan/pands-project/blob/main/Plots/petal_length_vs_sepal_width_scatter.png)
 
 
-## <b id="">Petal Width vs Sepal length Scatter Plot</b>
+#### <b id="">Petal Width vs Sepal length Scatter Plot</b>
 ![Petal Width vs Sepal Length](https://github.com/MikeCurleyCoosan/pands-project/blob/main/Plots/petal_width_vs_sepal_length_scatter.png)
 
-## <b id="">Petal Width vs Sepal Width Scatter Plot</b>
+#### <b id="">Petal Width vs Sepal Width Scatter Plot</b>
 ![Petal Width vs Sepal Width](https://github.com/MikeCurleyCoosan/pands-project/blob/main/Plots/petal_width_vs_sepal_width_scatter.png)
 
 
