@@ -142,7 +142,16 @@ with open('summary.txt', 'w') as file:
 | *Iris-virginica*  | 50.0  | 2.026 | 0.274650 | 1.4 | 1.8 | 2.0 | 2.3 | 2.5 |
 
 
+From the tables, we can see that there is a lot of overlap in sepal length and width between all three species. Of note is that *Iris setosa* typically has a smaller sepal 
+length, than *Iris versicolor* and *Iris virginica*, but despite this *Iris setosa* has wider sepals than the other two species. The biggest difference in species can be 
+seen in the petal length, with *Iris setosa* having much shorter petals than *Iris versicolor*, with *Iris virginica* having the longest petals. In the overall table, we 
+saw the standard deviation for petal length was relatively high, but now when the samples are separated by species, the std is smaller for each. This tells us again that 
+there is a large difference between the species types, but when compared to another sample of the same species, the difference is much smaller. The pattern is similar for 
+petal width, with *Iris setosa* being the narrowest and *Iris virginica* being the widest, but this difference is not as large as it is for petal length.
+
 ### ***2.1 Generate a histogram of each variable***
+
+Histograms are used to represent the frequency of a particular variable in a dataset. A function called create_histogram has been written to generate four histograms - one for each of the four measured variables. This function takes in two parameters, the dataframe and the variable you wish to create a histogram for. The same function can then be re-used to create all other histograms by just changing the variable we are passing into it.
 
 ```python
 
@@ -163,6 +172,18 @@ def create_histogram(df, variable):
     plt.savefig("Plots/" + variable + "_histogram.png")
 
 ```
+
+## <b id="">Sepal Length Histogram</b>
+![Sepal Length](https://github.com/MikeCurleyCoosan/pands-project/blob/main/Plots/sepal_length_histogram.png)
+
+## <b id="">Sepal Width Histogram</b>
+![Sepal Width](https://github.com/MikeCurleyCoosan/pands-project/blob/main/Plots/sepal_width_histogram.png)
+
+## <b id="">Petal Length Histogram</b>
+![Petal Length](https://github.com/MikeCurleyCoosan/pands-project/blob/main/Plots/petal_length_histogram.png)
+
+## <b id="">Petal Width Histogram</b>
+![Petal Width](https://github.com/MikeCurleyCoosan/pands-project/blob/main/Plots/petal_width_histogram.png)
 
 ### ***2.1 Generate a scatter plot of each set of variables***
 
