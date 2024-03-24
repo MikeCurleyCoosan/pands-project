@@ -143,9 +143,8 @@ def create_scatter_plot(df, x, y): #The function takes in three parameters, the 
     versicolor = df[df.species=='Iris-versicolor']
     virginica = df[df.species=='Iris-virginica']
 
-    #The stateless approach to creating a scatter plot as recommended by real python website
-    #https://realpython.com/python-matplotlib-guide/
-    #https://realpython.com/python-histograms/
+    #Our figure and axes are created using the subplots() function. 
+    #The subplots() function returns an instance of the figure and an array of axes objects.
     fig, ax = plt.subplots()
 
     #Create the scatter plot for the two variables for each species on the one plot. Therefore three scatter plots will be
@@ -175,7 +174,7 @@ def create_scatter_plot(df, x, y): #The function takes in three parameters, the 
     plt.savefig("Plots/" + x + "_vs_" + y + "_scatter.png")
 
 #Create a function to create a boxplot for each variable
-def create_boxplot(df, variable): #The function takes in two parameters, the dataframe and the variable to
+def create_boxplot(df, variable): #The function takes in two parameters, the dataframe and the variable to create a boxplot for.
 
     #Create local variables for each species
     setosa = df[df.species == "Iris-setosa"]
@@ -185,7 +184,8 @@ def create_boxplot(df, variable): #The function takes in two parameters, the dat
     #Create a list of colours to use for the boxplots
     colors = ['red', 'green', 'blue'] #The colours for the boxplots
 
-    #The stateless approach to creating a boxplot as recommended by real python website
+    #Our figure and axes are created using the subplots() function. 
+    #The subplots() function returns an instance of the figure and an array of axes objects.
     fig, ax = plt.subplots()
 
     #Create a boxplot for each variable on one plot. Therefore three boxplots will be created on the same plot.
@@ -230,9 +230,8 @@ def create_boxplot(df, variable): #The function takes in two parameters, the dat
 
 #Create a function to create a pairplot of the dataset without using the seaborn library
 def create_pairplot(df):
-    #The stateless approach to creating a pairplot as recommended by real python website
-    #https://realpython.com/python-matplotlib-guide/
-    #https://realpython.com/python-histograms/
+    #Our figure and axes are created using the subplots() function. 
+    #The subplots() function returns an instance of the figure and an array of axes objects.
     fig, ax = plt.subplots(2,2)
 
     #Add some padding to the subplots
@@ -356,10 +355,6 @@ for i in range(len(my_var)):
 
 #Create a pairplot of the dataset
 create_pairplot(df)
-
-
-
-
 
 
 
