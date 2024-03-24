@@ -166,6 +166,9 @@ def create_histogram(df, variable): #The function takes in two parameters, the d
     #Add a title
     ax.set_title(variable.capitalize().replace('_', ' '), fontdict=font1)
 
+    #Add a grid
+    ax.grid(linestyle='--', linewidth=0.5, color='black', alpha=0.4)
+
     #Add a legend
     ax.legend()
 
@@ -202,7 +205,7 @@ def create_scatter_plot(df, x, y): #The function takes in three parameters, the 
     ax.set_ylabel(y.capitalize().replace('_', ' ') + " (cm)", fontdict=font2)
 
     #Add a grid
-    ax.grid()
+    ax.grid(linestyle='--', linewidth=0.5, color='black', alpha=0.4)
 
     #Add a title
     ax.set_title("Iris " + x.capitalize().replace('_', ' ') + " vs " + y.capitalize().replace('_', ' '), fontdict=font1)
